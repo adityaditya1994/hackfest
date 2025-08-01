@@ -71,6 +71,7 @@ export interface DashboardMetrics {
     department: string | null;
     empId: string | null;
     scope: string;
+    employeeCount?: number;
   };
 }
 
@@ -185,8 +186,20 @@ export const dashboardService = {
 };
 
 export const employeeService = {
-  getAllEmployees: async (): Promise<Employee[]> => {
-    const response = await api.get<Employee[]>('/employees');
+  getAllEmployees: async (managerId?: string, includeHierarchy?: boolean): Promise<Employee[]> => {
+    let url = '/employees';
+    const params = new URLSearchParams();
+    
+    if (managerId && includeHierarchy) {
+      params.append('managerId', managerId);
+      params.append('includeHierarchy', 'true');
+    }
+    
+    if (params.toString()) {
+      url += `?${params.toString()}`;
+    }
+    
+    const response = await api.get<Employee[]>(url);
     return response.data;
   },
 

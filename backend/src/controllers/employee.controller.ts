@@ -15,6 +15,10 @@ interface Employee {
   location: string;
   highest_qualification: string;
   salary: string;
+  engagement_score?: number;
+  performance_rating?: string;
+  hrbp_tagging?: string;
+  directReports?: Employee[];
 }
 
 interface EmployeeWithDetails extends Employee {
@@ -24,17 +28,65 @@ interface EmployeeWithDetails extends Employee {
   directReports?: Employee[];
 }
 
+// Helper function to get all employees under a specific manager (including indirect reports)
+const getAllEmployeesUnderManager = async (managerName: string): Promise<string[]> => {
+  const getDirectAndIndirectReports = async (managerName: string): Promise<string[]> => {
+    const directReports = await runQuery<{name: string}[]>(`
+      SELECT name FROM employees 
+      WHERE manager_name = ? AND status = 'Active' AND manager_id IS NOT NULL AND manager_id != ''
+    `, [managerName]);
+
+    const allEmployees = directReports.map(emp => emp.name);
+    
+    // Recursively get indirect reports
+    for (const employee of directReports) {
+      const indirectReports = await getDirectAndIndirectReports(employee.name);
+      allEmployees.push(...indirectReports);
+    }
+    
+    return allEmployees;
+  };
+
+  return await getDirectAndIndirectReports(managerName);
+};
+
 export const getAllEmployees = async (req: Request, res: Response) => {
   try {
+    const { managerId, includeHierarchy } = req.query;
+    
+    let whereClause = "WHERE e.status = 'Active' AND e.manager_id IS NOT NULL AND e.manager_id != ''";
+    let params: any[] = [];
+
+    // If managerId is provided and includeHierarchy is true, get all employees under that manager
+    if (managerId && includeHierarchy === 'true') {
+      // First get the manager's name
+      const manager = await getOne<{name: string}>(`
+        SELECT name FROM employees WHERE manager_id = ?
+      `, [managerId]);
+
+      if (manager) {
+        const allEmployeesUnderManager = await getAllEmployeesUnderManager(manager.name);
+        
+        if (allEmployeesUnderManager.length > 0) {
+          const placeholders = allEmployeesUnderManager.map(() => '?').join(',');
+          whereClause += ` AND e.name IN (${placeholders})`;
+          params.push(...allEmployeesUnderManager);
+        } else {
+          // If no employees under this manager, return empty array
+          return res.json([]);
+        }
+      }
+    }
+
     const employees = await runQuery<Employee[]>(`
       SELECT e.manager_id, e.name, e.designation, e.level, e.manager_name, e.gender, e.status, 
              e.doj, e.total_experience, e.tenure, e.location, e.highest_qualification, e.salary,
              eng.engagement_score, eng.hrbp_tagging
       FROM employees e
       LEFT JOIN engagement eng ON e.name = eng.name
-      WHERE e.status = 'Active' AND e.manager_id IS NOT NULL AND e.manager_id != ''
+      ${whereClause}
       ORDER BY e.name
-    `);
+    `, params);
 
     res.json(employees);
   } catch (error) {

@@ -13,29 +13,17 @@ import {
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useAuth, UserRole } from '../../contexts/AuthContext';
 
-const navigation = [
-  { name: 'Dashboard', href: '/', icon: HomeIcon },
-  { name: 'Team', href: '/team', icon: UsersIcon },
-  { name: 'Hiring', href: '/hiring', icon: BriefcaseIcon },
-  { name: 'Experience', href: '/experience', icon: ChartBarIcon },
-];
-
-const roleLabels = {
-  leader: 'Leader View',
-  hr: 'HR View',
-  manager: 'Manager View',
-};
-
-const roleColors = {
-  leader: 'bg-blue-100 text-blue-800',
-  hr: 'bg-green-100 text-green-800',
-  manager: 'bg-purple-100 text-purple-800',
-};
-
 export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
   const { user, switchRole, logout, setUser } = useAuth();
+
+  const navigation = [
+    { name: 'Dashboard', href: '/', icon: '🏠', current: location.pathname === '/' },
+    { name: 'Team', href: '/team', icon: '👥', current: location.pathname === '/team' },
+    { name: 'Hiring', href: '/hiring', icon: '💼', current: location.pathname === '/hiring' },
+    { name: 'Experience', href: '/experience', icon: '📊', current: location.pathname === '/experience' },
+  ];
 
   const handleRoleChange = (role: UserRole) => {
     switchRole(role);
@@ -44,6 +32,10 @@ export default function Layout() {
   const handleLogout = () => {
     logout();
   };
+
+  if (!user) {
+    return <div>Please log in</div>;
+  }
 
   return (
     <div>
@@ -84,47 +76,41 @@ export default function Layout() {
                   <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
                     <button type="button" className="-m-2.5 p-2.5" onClick={() => setSidebarOpen(false)}>
                       <span className="sr-only">Close sidebar</span>
-                      <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                      ✕
                     </button>
                   </div>
                 </Transition.Child>
                 {/* Sidebar component for mobile */}
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-primary-600 px-6 pb-4">
+                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gradient-to-b from-telekom-magenta to-primary-600 px-6 pb-4">
                   <div className="flex h-16 shrink-0 items-center">
-                    <img
-                      className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=white"
-                      alt="HR OneMind"
-                    />
-                    <span className="ml-2 text-white font-semibold">HR OneMind</span>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                        <span className="text-telekom-magenta font-bold text-lg">🤖</span>
+                      </div>
+                      <h1 className="text-white text-xl font-bold">Jarvis Analytics</h1>
+                    </div>
                   </div>
                   <nav className="flex flex-1 flex-col">
                     <ul role="list" className="flex flex-1 flex-col gap-y-7">
                       <li>
                         <ul role="list" className="-mx-2 space-y-1">
-                          {navigation.map((item) => {
-                            const isActive = location.pathname === item.href;
-                            return (
-                              <li key={item.name}>
-                                <Link
-                                  to={item.href}
-                                  className={`
-                                    group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold
-                                    ${isActive
-                                      ? 'bg-primary-700 text-white'
-                                      : 'text-primary-200 hover:text-white hover:bg-primary-700'
-                                    }
-                                  `}
-                                >
-                                  <item.icon
-                                    className={`h-6 w-6 shrink-0 ${isActive ? 'text-white' : 'text-primary-200 group-hover:text-white'}`}
-                                    aria-hidden="true"
-                                  />
-                                  {item.name}
-                                </Link>
-                              </li>
-                            );
-                          })}
+                          {navigation.map((item) => (
+                            <li key={item.name}>
+                              <Link
+                                to={item.href}
+                                className={`
+                                  group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold transition-colors
+                                  ${item.current
+                                    ? 'bg-primary-700 text-white'
+                                    : 'text-primary-100 hover:text-white hover:bg-primary-700'
+                                  }
+                                `}
+                              >
+                                <span className="text-lg">{item.icon}</span>
+                                {item.name}
+                              </Link>
+                            </li>
+                          ))}
                         </ul>
                       </li>
                     </ul>
@@ -138,42 +124,36 @@ export default function Layout() {
 
       {/* Static sidebar for desktop */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-primary-600 px-6 pb-4">
+        <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gradient-to-b from-telekom-magenta to-primary-600 px-6 pb-4">
           <div className="flex h-16 shrink-0 items-center">
-            <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=white"
-              alt="HR OneMind"
-            />
-            <span className="ml-2 text-white font-semibold">HR OneMind</span>
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg">
+                <span className="text-telekom-magenta font-bold text-xl">🤖</span>
+              </div>
+              <h1 className="text-white text-2xl font-bold">Jarvis Analytics</h1>
+            </div>
           </div>
           <nav className="flex flex-1 flex-col">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">
               <li>
                 <ul role="list" className="-mx-2 space-y-1">
-                  {navigation.map((item) => {
-                    const isActive = location.pathname === item.href;
-                    return (
-                      <li key={item.name}>
-                        <Link
-                          to={item.href}
-                          className={`
-                            group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold
-                            ${isActive
-                              ? 'bg-primary-700 text-white'
-                              : 'text-primary-200 hover:text-white hover:bg-primary-700'
-                            }
-                          `}
-                        >
-                          <item.icon
-                            className={`h-6 w-6 shrink-0 ${isActive ? 'text-white' : 'text-primary-200 group-hover:text-white'}`}
-                            aria-hidden="true"
-                          />
-                          {item.name}
-                        </Link>
-                      </li>
-                    );
-                  })}
+                  {navigation.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        to={item.href}
+                        className={`
+                          group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold transition-colors
+                          ${item.current
+                            ? 'bg-primary-700 text-white shadow-md'
+                            : 'text-primary-100 hover:text-white hover:bg-primary-700'
+                          }
+                        `}
+                      >
+                        <span className="text-lg">{item.icon}</span>
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </li>
             </ul>
@@ -182,43 +162,43 @@ export default function Layout() {
       </div>
 
       <div className="lg:pl-72">
+        {/* Top bar */}
         <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
           <button type="button" className="-m-2.5 p-2.5 text-gray-700 lg:hidden" onClick={() => setSidebarOpen(true)}>
             <span className="sr-only">Open sidebar</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            ☰
           </button>
 
           {/* Separator */}
-          <div className="h-6 w-px bg-gray-200 lg:hidden" aria-hidden="true" />
+          <div className="h-6 w-px bg-gray-200 lg:hidden" />
 
           <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
             <div className="relative flex flex-1 items-center">
-              {/* Role indicator */}
-              {user && (
-                <div className="flex items-center space-x-3">
-                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${roleColors[user.role]}`}>
-                    {roleLabels[user.role]}
-                  </span>
-                  <span className="text-sm text-gray-500">|</span>
-                  <span className="text-sm text-gray-700">{user.department}</span>
+              <div className="flex items-center space-x-4">
+                <div className="bg-gradient-to-r from-telekom-magenta to-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  {user.role === 'leader' ? '👔 Leader View' : user.role === 'hr' ? '👥 HR View' : '🎯 Manager View'}
                 </div>
-              )}
+                {user.department && (
+                  <div className="text-sm text-gray-600">
+                    Department: <span className="font-medium text-telekom-magenta">{user.department}</span>
+                  </div>
+                )}
+              </div>
             </div>
             <div className="flex items-center gap-x-4 lg:gap-x-6">
               {/* Profile dropdown */}
               <Menu as="div" className="relative">
                 <Menu.Button className="-m-1.5 flex items-center p-1.5">
                   <span className="sr-only">Open user menu</span>
-                  <img
-                    className="h-8 w-8 rounded-full bg-gray-50"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                  <span className="hidden lg:flex lg:items-center">
-                    <span className="ml-4 text-sm font-semibold leading-6 text-gray-900" aria-hidden="true">
-                      {user?.name || 'User'}
-                    </span>
-                  </span>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-gradient-to-br from-telekom-magenta to-primary-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                      {user.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                    </div>
+                    <div className="hidden lg:flex lg:items-center">
+                      <span className="text-sm font-semibold leading-6 text-gray-900">{user.name}</span>
+                      <span className="ml-2 text-gray-400">▼</span>
+                    </div>
+                  </div>
                 </Menu.Button>
                 <Transition
                   as={Fragment}

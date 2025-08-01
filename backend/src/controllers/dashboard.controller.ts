@@ -38,21 +38,70 @@ interface SeniorityMixData {
   count: number;
 }
 
+// Helper function to get all employees under a specific manager (including indirect reports)
+const getAllEmployeesUnderManager = async (managerName: string): Promise<string[]> => {
+  const getDirectAndIndirectReports = async (managerName: string): Promise<string[]> => {
+    const directReports = await runQuery<{name: string}[]>(`
+      SELECT name FROM employees 
+      WHERE manager_name = ? AND status = 'Active' AND manager_id IS NOT NULL AND manager_id != ''
+    `, [managerName]);
+
+    const allEmployees = directReports.map(emp => emp.name);
+    
+    // Recursively get indirect reports
+    for (const employee of directReports) {
+      const indirectReports = await getDirectAndIndirectReports(employee.name);
+      allEmployees.push(...indirectReports);
+    }
+    
+    return allEmployees;
+  };
+
+  return await getDirectAndIndirectReports(managerName);
+};
+
 export const getDashboardMetrics = async (req: Request, res: Response) => {
   try {
     const { role, department, empId } = req.query;
 
     // Base filters for different roles
     let employeeFilter = "WHERE e.status = 'Active'";
+    let employeeList: string[] = [];
 
     // Apply role-based filtering
-    if (role === 'manager' && empId) {
-      // Manager view: Show only their direct and indirect reports
-      employeeFilter += ` AND (e.manager_id = '${empId}' OR e.manager_name IN (
-        SELECT name FROM employees WHERE manager_id = '${empId}'
-      ))`;
+    if (role === 'leader' && empId) {
+      // Leader view: Show all employees under this leader (including indirect reports)
+      const leader = await runQuery<{name: string}[]>(`
+        SELECT name FROM employees WHERE manager_id = ?
+      `, [empId]);
+
+      if (leader.length > 0) {
+        const allEmployeesUnderLeader = await getAllEmployeesUnderManager(leader[0].name);
+        employeeList = allEmployeesUnderLeader;
+        
+        if (allEmployeesUnderLeader.length > 0) {
+          const placeholders = allEmployeesUnderLeader.map(() => '?').join(',');
+          employeeFilter += ` AND e.name IN (${placeholders})`;
+        } else {
+          employeeFilter += ` AND 1=0`; // No employees under this leader
+        }
+      }
+    } else if (role === 'manager' && empId) {
+      // Manager view: Show only their direct reports
+      const manager = await runQuery<{name: string}[]>(`
+        SELECT name FROM employees WHERE manager_id = ?
+      `, [empId]);
+
+      if (manager.length > 0) {
+        employeeFilter += ` AND e.manager_name = '${manager[0].name}'`;
+        
+        const directReports = await runQuery<{name: string}[]>(`
+          SELECT name FROM employees WHERE manager_name = ? AND status = 'Active'
+        `, [manager[0].name]);
+        employeeList = directReports.map(emp => emp.name);
+      }
     } else if (role === 'leader' && department) {
-      // Leader view: Show department-level data
+      // Leader view by department: Show department-level data
       employeeFilter += ` AND e.team = '${department}'`;
     }
     // HR view shows all data (no additional filters)
@@ -67,22 +116,24 @@ export const getDashboardMetrics = async (req: Request, res: Response) => {
         AVG(CAST(e.tenure AS FLOAT)) as avg_tenure
       FROM employees e
       ${employeeFilter}
-    `);
+    `, employeeList);
 
     // Get engagement metrics with proper filtering
+    let engagementFilter = "WHERE 1=1";
+    if (employeeList.length > 0) {
+      const placeholders = employeeList.map(() => '?').join(',');
+      engagementFilter = `WHERE eng.name IN (${placeholders})`;
+    } else if (role === 'leader' && department) {
+      engagementFilter = `JOIN employees e ON eng.name = e.name WHERE e.status = 'Active' AND e.team = '${department}'`;
+    }
+
     const engagementMetrics = await runQuery<EngagementMetrics[]>(`
       SELECT
         AVG(eng.engagement_score) as avg_engagement,
         COUNT(CASE WHEN eng.engagement_score < 60 THEN 1 END) as low_engagement_count
       FROM engagement eng
-      ${role === 'manager' || role === 'leader' ? 
-        `JOIN employees e ON eng.name = e.name 
-         WHERE e.status = 'Active' ${
-           role === 'manager' && empId ? ` AND (e.manager_id = '${empId}' OR e.manager_name IN (SELECT name FROM employees WHERE manager_id = '${empId}'))` :
-           role === 'leader' && department ? ` AND e.team = '${department}'` : ''
-         }` 
-        : 'WHERE 1=1'}
-    `);
+      ${engagementFilter}
+    `, employeeList);
 
     // For performance metrics, since we can't link them properly, we'll calculate based on engagement scores
     // High engagement (80+) = High performer, Low engagement (<60) = Needs improvement
@@ -91,14 +142,8 @@ export const getDashboardMetrics = async (req: Request, res: Response) => {
         COUNT(DISTINCT CASE WHEN eng.engagement_score >= 80 THEN eng.name END) as high_performers,
         COUNT(DISTINCT CASE WHEN eng.engagement_score < 60 THEN eng.name END) as needs_improvement
       FROM engagement eng
-      ${role === 'manager' || role === 'leader' ? 
-        `JOIN employees e ON eng.name = e.name 
-         WHERE e.status = 'Active' ${
-           role === 'manager' && empId ? ` AND (e.manager_id = '${empId}' OR e.manager_name IN (SELECT name FROM employees WHERE manager_id = '${empId}'))` :
-           role === 'leader' && department ? ` AND e.team = '${department}'` : ''
-         }` 
-        : 'WHERE 1=1'}
-    `);
+      ${engagementFilter}
+    `, employeeList);
 
     // Get hiring metrics (not filtered by role as it's organizational level)
     const hiringMetrics = await runQuery<HiringMetrics[]>(`
@@ -109,16 +154,18 @@ export const getDashboardMetrics = async (req: Request, res: Response) => {
     `);
 
     // Get attrition risk based on low engagement
+    let attritionRiskFilter = engagementFilter;
+    if (!engagementFilter.includes('JOIN')) {
+      attritionRiskFilter = engagementFilter.replace('WHERE', 'JOIN employees e ON eng.name = e.name WHERE e.status = \'Active\' AND');
+    }
+
     const attritionRisk = await runQuery<AttritionRisk[]>(`
       SELECT
         COUNT(DISTINCT e.name) as at_risk_count
       FROM engagement eng
-      JOIN employees e ON eng.name = e.name
-      WHERE eng.engagement_score < 60
-      AND e.status = 'Active'
-      ${role === 'manager' && empId ? ` AND (e.manager_id = '${empId}' OR e.manager_name IN (SELECT name FROM employees WHERE manager_id = '${empId}'))` :
-        role === 'leader' && department ? ` AND e.team = '${department}'` : ''}
-    `);
+      ${attritionRiskFilter.includes('JOIN') ? attritionRiskFilter : `JOIN employees e ON eng.name = e.name WHERE eng.engagement_score < 60 AND e.status = 'Active'`}
+      ${!attritionRiskFilter.includes('engagement_score') ? 'AND eng.engagement_score < 60' : ''}
+    `, employeeList);
 
     // Calculate role-specific insights
     const totalEmployees = teamComposition[0]?.total_employees || 0;
@@ -164,7 +211,8 @@ export const getDashboardMetrics = async (req: Request, res: Response) => {
         role: role || 'hr',
         department: department || null,
         empId: empId || null,
-        scope: role === 'hr' ? 'company-wide' : role === 'leader' ? 'department' : 'team'
+        scope: role === 'hr' ? 'company-wide' : role === 'leader' ? (empId ? 'team-hierarchy' : 'department') : 'direct-reports',
+        employeeCount: employeeList.length || totalEmployees
       }
     });
   } catch (error) {
@@ -179,15 +227,40 @@ export const getAgeMixData = async (req: Request, res: Response) => {
 
     // Base filters for different roles
     let employeeFilter = "WHERE e.status = 'Active' AND e.age_group IS NOT NULL AND e.age_group != ''";
+    let employeeList: string[] = [];
 
-    // Apply role-based filtering
-    if (role === 'manager' && empId) {
-      employeeFilter += ` AND (e.manager_id = '${empId}' OR e.manager_name IN (
-        SELECT name FROM employees WHERE manager_id = '${empId}'
-      ))`;
+    // Apply role-based filtering with hierarchy support
+    if (role === 'leader' && empId) {
+      // Leader view: Show all employees under this leader (including indirect reports)
+      const leader = await runQuery<{name: string}[]>(`
+        SELECT name FROM employees WHERE manager_id = ?
+      `, [empId]);
+
+      if (leader.length > 0) {
+        const allEmployeesUnderLeader = await getAllEmployeesUnderManager(leader[0].name);
+        employeeList = allEmployeesUnderLeader;
+        
+        if (allEmployeesUnderLeader.length > 0) {
+          const placeholders = allEmployeesUnderLeader.map(() => '?').join(',');
+          employeeFilter += ` AND e.name IN (${placeholders})`;
+        } else {
+          employeeFilter += ` AND 1=0`; // No employees under this leader
+        }
+      }
+    } else if (role === 'manager' && empId) {
+      // Manager view: Show only their direct reports
+      const manager = await runQuery<{name: string}[]>(`
+        SELECT name FROM employees WHERE manager_id = ?
+      `, [empId]);
+
+      if (manager.length > 0) {
+        employeeFilter += ` AND e.manager_name = '${manager[0].name}'`;
+      }
     } else if (role === 'leader' && department) {
+      // Leader view by department: Show department-level data
       employeeFilter += ` AND e.team = '${department}'`;
     }
+    // HR view shows all data (no additional filters)
 
     const ageMixData = await runQuery<AgeMixData[]>(`
       SELECT 
@@ -206,7 +279,7 @@ export const getAgeMixData = async (req: Request, res: Response) => {
           WHEN e.age_group = '45+' THEN 6
           ELSE 7
         END
-    `);
+    `, employeeList);
 
     res.json(ageMixData);
   } catch (error) {
@@ -221,33 +294,59 @@ export const getSeniorityMixData = async (req: Request, res: Response) => {
 
     // Base filters for different roles
     let employeeFilter = "WHERE e.status = 'Active' AND e.level IS NOT NULL AND e.level != ''";
+    let employeeList: string[] = [];
 
-    // Apply role-based filtering
-    if (role === 'manager' && empId) {
-      employeeFilter += ` AND (e.manager_id = '${empId}' OR e.manager_name IN (
-        SELECT name FROM employees WHERE manager_id = '${empId}'
-      ))`;
+    // Apply role-based filtering with hierarchy support
+    if (role === 'leader' && empId) {
+      // Leader view: Show all employees under this leader (including indirect reports)
+      const leader = await runQuery<{name: string}[]>(`
+        SELECT name FROM employees WHERE manager_id = ?
+      `, [empId]);
+
+      if (leader.length > 0) {
+        const allEmployeesUnderLeader = await getAllEmployeesUnderManager(leader[0].name);
+        employeeList = allEmployeesUnderLeader;
+        
+        if (allEmployeesUnderLeader.length > 0) {
+          const placeholders = allEmployeesUnderLeader.map(() => '?').join(',');
+          employeeFilter += ` AND e.name IN (${placeholders})`;
+        } else {
+          employeeFilter += ` AND 1=0`; // No employees under this leader
+        }
+      }
+    } else if (role === 'manager' && empId) {
+      // Manager view: Show only their direct reports
+      const manager = await runQuery<{name: string}[]>(`
+        SELECT name FROM employees WHERE manager_id = ?
+      `, [empId]);
+
+      if (manager.length > 0) {
+        employeeFilter += ` AND e.manager_name = '${manager[0].name}'`;
+      }
     } else if (role === 'leader' && department) {
+      // Leader view by department: Show department-level data
       employeeFilter += ` AND e.team = '${department}'`;
     }
+    // HR view shows all data (no additional filters)
 
     const seniorityMixData = await runQuery<SeniorityMixData[]>(`
       SELECT 
-        UPPER(e.level) as level,
+        e.level,
         COUNT(*) as count
       FROM employees e
       ${employeeFilter}
       GROUP BY e.level
       ORDER BY 
         CASE 
-          WHEN e.level = 'l1' THEN 1
-          WHEN e.level = 'l2' THEN 2
-          WHEN e.level = 'l3' THEN 3
-          WHEN e.level = 'l4' THEN 4
-          WHEN e.level = 'l5' THEN 5
-          ELSE 6
+          WHEN e.level = 'l0' THEN 1
+          WHEN e.level = 'l1' THEN 2
+          WHEN e.level = 'l2' THEN 3
+          WHEN e.level = 'l3' THEN 4
+          WHEN e.level = 'l4' THEN 5
+          WHEN e.level = 'l5' THEN 6
+          ELSE 7
         END
-    `);
+    `, employeeList);
 
     res.json(seniorityMixData);
   } catch (error) {

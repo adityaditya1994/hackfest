@@ -8,6 +8,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { employeeService, Employee, TeamHierarchy } from '../services/api';
 import EmployeeDetailModal from '../components/EmployeeDetailModal';
+import { useAuth } from '../contexts/AuthContext';
 
 interface EmployeeCardProps {
   employee: Employee;
@@ -198,18 +199,26 @@ function HierarchyNode({ node, onEmployeeSelect, selectedEmployeeId }: Hierarchy
 }
 
 export default function Team() {
-  const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
-  const [selectedEmployeeForDetail, setSelectedEmployeeForDetail] = useState<Employee | null>(null);
-  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
+  const { user } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
   const [levelFilter, setLevelFilter] = useState('all');
   const [hrbpFilter, setHRBPFilter] = useState('all');
   const [viewMode, setViewMode] = useState<'list' | 'hierarchy'>('list');
+  const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
+  const [selectedEmployeeForDetail, setSelectedEmployeeForDetail] = useState<Employee | null>(null);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
 
-  // Get all employees
+  // Get all employees - include hierarchy filtering if user is a leader/manager
+  const shouldIncludeHierarchy = user?.role === 'leader' || user?.role === 'manager';
   const { data: employees, isLoading: employeesLoading } = useQuery({
-    queryKey: ['employees'],
-    queryFn: employeeService.getAllEmployees,
+    queryKey: ['employees', user?.empId, shouldIncludeHierarchy],
+    queryFn: () => {
+      if (shouldIncludeHierarchy && user?.empId) {
+        return employeeService.getAllEmployees(user.empId, true);
+      }
+      return employeeService.getAllEmployees();
+    },
+    enabled: !!user,
   });
 
   // Get L4 employees for quick access
@@ -234,7 +243,7 @@ export default function Team() {
     return matchesSearch && matchesLevel && matchesHRBP;
   }) || [];
 
-  const handleEmployeeSelect = (employee: Employee) => {
+  const handleEmployeeClick = (employee: Employee) => {
     setSelectedEmployee(employee);
   };
 
@@ -243,13 +252,15 @@ export default function Team() {
     setIsDetailModalOpen(true);
   };
 
-  const closeDetailModal = () => {
-    setIsDetailModalOpen(false);
-    setSelectedEmployeeForDetail(null);
-  };
-
   if (employeesLoading) {
-    return <div className="flex items-center justify-center h-64">Loading team data...</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-500 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading team data...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -472,7 +483,7 @@ export default function Team() {
       <EmployeeDetailModal
         employee={selectedEmployeeForDetail}
         isOpen={isDetailModalOpen}
-        onClose={closeDetailModal}
+        onClose={() => setIsDetailModalOpen(false)}
       />
     </div>
   );

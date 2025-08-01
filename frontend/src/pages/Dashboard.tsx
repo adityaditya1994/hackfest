@@ -59,21 +59,36 @@ export default function Dashboard() {
   // Fetch dashboard metrics
   const { data: metrics, isLoading, error, refetch } = useQuery({
     queryKey: ['dashboard', user?.role, user?.department, user?.empId],
-    queryFn: () => dashboardService.getMetrics(user?.role, user?.department, user?.empId),
+    queryFn: () => {
+      if (user?.role === 'leader' || user?.role === 'manager') {
+        return dashboardService.getMetrics(user.role, user.department, user.empId);
+      }
+      return dashboardService.getMetrics(user?.role, user?.department);
+    },
     enabled: !!user,
   });
 
   // Fetch age mix data
   const { data: ageMixData, isLoading: ageMixLoading } = useQuery({
     queryKey: ['ageMix', user?.role, user?.department, user?.empId],
-    queryFn: () => dashboardService.getAgeMix(user?.role, user?.department, user?.empId),
+    queryFn: () => {
+      if (user?.role === 'leader' || user?.role === 'manager') {
+        return dashboardService.getAgeMix(user.role, user.department, user.empId);
+      }
+      return dashboardService.getAgeMix(user?.role, user?.department);
+    },
     enabled: !!user,
   });
 
   // Fetch seniority mix data
   const { data: seniorityMixData, isLoading: seniorityMixLoading } = useQuery({
     queryKey: ['seniorityMix', user?.role, user?.department, user?.empId],
-    queryFn: () => dashboardService.getSeniorityMix(user?.role, user?.department, user?.empId),
+    queryFn: () => {
+      if (user?.role === 'leader' || user?.role === 'manager') {
+        return dashboardService.getSeniorityMix(user.role, user.department, user.empId);
+      }
+      return dashboardService.getSeniorityMix(user?.role, user?.department);
+    },
     enabled: !!user,
   });
 
@@ -163,25 +178,28 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
-      {/* Header with role-specific messaging */}
-      <div className="bg-white rounded-lg shadow p-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">
-              {isHRView ? 'HR Analytics Dashboard' : isLeaderView ? 'Leadership Dashboard' : 'Manager Dashboard'}
-            </h1>
-            <p className="text-gray-600">
-              {isHRView 
-                ? 'Company-wide people analytics and HR insights'
-                : isLeaderView 
-                ? 'Strategic people insights for organizational leadership'
-                : 'Team performance and engagement metrics'
-              }
-            </p>
-          </div>
-          <div className="text-sm text-gray-500">
-            {user?.department && <span>Department: {user.department}</span>}
-          </div>
+      {/* Header */}
+      <div className="mb-8">
+        <div className="bg-gradient-to-r from-telekom-magenta to-primary-600 rounded-lg p-6 text-white">
+          <h1 className="text-3xl font-bold">
+            {isHRView ? '👥 HR Analytics Dashboard' : isLeaderView ? '👔 Leadership Dashboard' : '🎯 Team Dashboard'}
+          </h1>
+          <p className="mt-2 text-primary-100">
+            {isHRView 
+              ? `Company-wide insights across all ${metrics?.insights.totalEmployees || 0} employees` 
+              : isLeaderView 
+                ? `Strategic insights for ${user?.department || 'your department'} - ${metrics?.insights.totalEmployees || 0} team members`
+                : `Team overview for your ${metrics?.insights.totalEmployees || 0} direct reports`
+            }
+          </p>
+          {metrics?.metadata && (
+            <div className="mt-4 bg-white/20 rounded-lg p-3">
+              <div className="text-sm text-primary-100">
+                <span className="font-medium">Current Scope:</span> {metrics.metadata.scope} 
+                {metrics.metadata.employeeCount && ` • ${metrics.metadata.employeeCount} employees`}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

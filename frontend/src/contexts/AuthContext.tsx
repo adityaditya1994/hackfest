@@ -10,6 +10,8 @@ export interface User {
   department?: string;
   managerId?: string;
   empId?: string;
+  designation?: string;
+  level?: string;
 }
 
 interface AuthContextType {
@@ -36,15 +38,18 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  // For demo purposes, we'll start with a default user
+  // Using real senior employee from database - Ananya (L4 Principal Engineer)
   // In a real app, this would come from actual authentication
   const [user, setUser] = useState<User | null>({
-    id: 'user-001',
-    name: 'John Smith',
-    email: 'john.smith@deutschetelekom.com',
-    role: 'leader', // Back to leader role to test the fix
+    id: 'EMP0024',
+    name: 'Ananya',
+    email: 'ananya@deutschetelekom.com',
+    role: 'leader',
     department: 'OneAI', // Using actual team name from database
-    empId: 'EMP0024' // Using Ananya's ID as example
+    empId: 'EMP0024', // Real employee ID from database
+    managerId: 'EMP0024', // Self-reference for hierarchy purposes
+    designation: 'Principal Engineer',
+    level: 'L4'
   });
 
   const isAuthenticated = user !== null;
