@@ -1,0 +1,19 @@
+﻿role,value_stream,dept,level,vacancies,hr manager,hiring manager,hiring manager id,offered
+Software Engineer,OneMind,Backend,l2,1,Kavita Verma,Nilesh Parikh,EMP0362,0
+Senior Software Engineer,Commerce,Backend,l2,1,Ayaan Yadav,Kabir Modi,EMP0381,2
+Product Manager,OneAI,Backend,l1,3,Rohan Desai,Sai Naidu,EMP0339,1
+Product Manager,OneMind,Frontend,l2,2,Ananya Kumar,Smriti Verma,EMP0006,0
+QA Engineer,Commerce,Frontend,l1,2,Kabir Mittal,Ayaan Mukherjee,EMP0036,2
+Software Engineer,Commerce,Mobile,l2,1,Asha Verma,Shlok Gupta,EMP0216,0
+Product Manager,OneMind,Data,l2,5,Sandesh Patel,Geeta Bhatt,EMP0240,1
+Product Manager,OneMind,Product,l3,2,Nilesh Parikh,Abhimanyu Banerjee,EMP0493,2
+Product Manager,OneAI,Product,l3,3,Shweta Kumar,Rajesh Mittal,EMP0273,0
+QA Engineer,OneMind,QA,l1,1,Mukesh Shah,Nilesh Parikh,EMP0362,1
+QA Engineer,Commerce,QA,l2,4,Ritesh Mishra,Venkatesh Srivastava,EMP0448,0
+QA Engineer,OneAI,QA,l1,5,Atharv Mehta,Suresh Das,EMP0243,0
+Data Scientist,OneMind,TPM,l1,1,Rakesh Vyas,Yuvraj Joshi,EMP0178,1
+Product Manager,Commerce,TPM,l1,3,Sunita Ghosh,Rajesh Tiwari,EMP0241,0
+Product Manager,Home,Product,l1,1,Rakesh Vyas,Yuvraj Joshi,EMP0178,1
+QA Engineer,Home,Product,l2,3,Sunita Ghosh,Rajesh Tiwari,EMP0241,0
+QA Engineer,Home,QA,l1,2,Ananya Kumar,Smriti Verma,EMP0006,0
+QA Engineer,Home,QA,l2,2,Kabir Mittal,Ayaan Mukherjee,EMP0036,2

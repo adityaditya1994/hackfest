@@ -1,0 +1,501 @@
+﻿Emp ID,Name,Last Name,Full Name,Emp Type,Designation,Manager Name,Engagement Score,PTM,HRBP Tagging
+EMP0001,Sunita,Ghosh,Sunita Ghosh,FTE,Senior Director,Kavita Mukherjee,80,0,Green
+EMP0002,Kriti,Patel,Kriti Patel,FTE,Head of Product,Kavita Mukherjee,100,0,Green
+EMP0003,Ananya,Jain,Ananya Jain,FTE,Principal Engineer,Rohan Yadav,80,0,Green
+EMP0004,Shlok,Joshi,Shlok Joshi,FTE,Software Developer,Vihaan Vyas,80,0,Green
+EMP0005,Aditya,Mehta,Aditya Mehta,FTE,Trainee Engineer,Nilesh Naidu,60,0,Amber
+EMP0006,Smriti,Verma,Smriti Verma,FTE,Principal Engineer,Kavita Mukherjee,60,0,Amber
+EMP0007,Ayaan,Agarwal,Ayaan Agarwal,FTE,Director,Kavita Mukherjee,60,0,Amber
+EMP0008,Kavita,Gupta,Kavita Gupta,FTE,Senior Principal Engineer,Kavita Mukherjee,60,0,Amber
+EMP0009,Nilesh,Mukherjee,Nilesh Mukherjee,FTE,Product Manager,Rudra Bansal,80,0,Green
+EMP0010,Suresh,Goel,Suresh Goel,FTE,Senior Developer,Ganesh Mahajan,80,0,Green
+EMP0011,Ira,Pandey,Ira Pandey,FTE,Product Manager,Diya Mehta,80,0,Green
+EMP0012,Ramesh,Parikh,Ramesh Parikh,FTE,Senior QA Engineer,Venkatesh Verma,60,0,Amber
+EMP0013,Rudra,Singh,Rudra Singh,FTE,Technical Lead,Seeta Shah,60,0,Amber
+EMP0014,Kavita,Tiwari,Kavita Tiwari,FTE,Engineering Manager,Sandesh Bhatt,100,0,Green
+EMP0015,Ishaan,Vyas,Ishaan Vyas,FTE,Associate QA Engineer,Vikram Patel,80,0,Green
+EMP0016,Mahesh,Roy,Mahesh Roy,FTE,Engineering Manager,Rajesh Sharma,80,0,Green
+EMP0017,Dinesh,Mittal,Dinesh Mittal,FTE,Head of Product,Kavita Mukherjee,80,0,Green
+EMP0018,Kabir,Gupta,Kabir Gupta,FTE,Associate QA Engineer,Kiran Bhatt,100,0,Green
+EMP0019,Krishna,Goel,Krishna Goel,FTE,Junior Software Engineer,Mahesh Das,100,0,Green
+EMP0020,Vivaan,Banerjee,Vivaan Banerjee,FTE,Software Developer,Sai Vyas,60,0,Amber
+EMP0021,Ritesh,Naidu,Ritesh Naidu,FTE,Junior Analyst,Vedant Sharma,40,1,Red
+EMP0022,Arjun,Joshi,Arjun Joshi,FTE,Junior Software Engineer,Preeti Mehta,80,0,Green
+EMP0023,Ananya,Jain,Ananya Jain,FTE,Director,Kavita Mukherjee,80,0,Green
+EMP0024,Aditi,Tiwari,Aditi Tiwari,FTE,Software Engineer,Saanvi Shukla,80,0,Green
+EMP0025,Ananya,Kumar,Ananya Kumar,FTE,Junior Analyst,Vedant Joshi,100,0,Green
+EMP0026,Shaurya,Ghosh,Shaurya Ghosh,FTE,Trainee Engineer,Mahesh Parikh,100,0,Green
+EMP0027,Neeti,Reddy,Neeti Reddy,FTE,Business Analyst,Priya Reddy,100,0,Green
+EMP0028,Rohan,Thakkar,Rohan Thakkar,FTE,Technical Lead,Aditya Sharma,80,0,Green
+EMP0029,Aarav,Shukla,Aarav Shukla,FTE,Senior Software Engineer,Kavita Mukherjee,80,0,Green
+EMP0030,Pihu,Das,Pihu Das,FTE,Software Developer,Arjun Agarwal,60,0,Amber
+EMP0031,Venkatesh,Mishra,Venkatesh Mishra,FTE,Software Developer,Suresh Bansal,60,0,Amber
+EMP0032,Shlok,Parikh,Shlok Parikh,FTE,Business Analyst,Rajesh Singh,80,0,Green
+EMP0033,Sunita,Mehta,Sunita Mehta,FTE,Product Manager,Atharv Modi,100,0,Green
+EMP0034,Sushma,Vyas,Sushma Vyas,FTE,Senior QA Engineer,Ayaan Ghosh,80,0,Green
+EMP0035,Vikram,Ghosh,Vikram Ghosh,FTE,Senior Manager,Seeta Shah,60,0,Amber
+EMP0036,Ayaan,Mukherjee,Ayaan Mukherjee,FTE,Senior Director,Kavita Mukherjee,60,0,Amber
+EMP0037,Shlok,Mahajan,Shlok Mahajan,FTE,Staff Engineer,Aadhya Mishra,60,0,Amber
+EMP0038,Rajesh,Tripathi,Rajesh Tripathi,FTE,Staff Engineer,Sita Goel,60,0,Amber
+EMP0039,Sandesh,Mehta,Sandesh Mehta,FTE,Lead Architect,Sara Chowdhury,100,0,Green
+EMP0040,Seeta,Parikh,Seeta Parikh,FTE,Software Developer,Ganesh Kumar,80,0,Green
+EMP0041,Smriti,Modi,Smriti Modi,FTE,Trainee Engineer,Kavita Mukherjee,60,0,Amber
+EMP0042,Aditya,Shah,Aditya Shah,FTE,Senior Developer,Sandesh Mukherjee,80,0,Green
+EMP0043,Yogesh,Dubey,Yogesh Dubey,FTE,VP Engineering,Kavita Mukherjee,80,0,Green
+EMP0044,Reyansh,Singhal,Reyansh Singhal,FTE,Senior Analyst,Suresh Srivastava,80,0,Green
+EMP0045,Arjun,Roy,Arjun Roy,FTE,Software Developer,Kiran Rao,100,0,Green
+EMP0046,Kavita,Chowdhury,Kavita Chowdhury,FTE,Junior Software Engineer,Yuvraj Patel,80,0,Green
+EMP0047,Abhimanyu,Mishra,Abhimanyu Mishra,FTE,Senior Software Engineer,Dinesh Agarwal,100,0,Green
+EMP0048,Suresh,Reddy,Suresh Reddy,FTE,Associate Software Engineer,Kavita Mukherjee,30,1,Red
+EMP0049,Neeti,Tiwari,Neeti Tiwari,FTE,Engineering Manager,Rakesh Tiwari,60,0,Amber
+EMP0050,Yuvraj,Yadav,Yuvraj Yadav,FTE,Senior Principal Engineer,Kavita Mukherjee,80,0,Green
+EMP0051,Yogesh,Singh,Yogesh Singh,FTE,QA Engineer,Sandesh Sharma,100,0,Green
+EMP0052,Atharv,Sharma,Atharv Sharma,FTE,Business Analyst,Mukesh Ghosh,80,0,Green
+EMP0053,Kabir,Naidu,Kabir Naidu,FTE,Business Analyst,Kavita Mukherjee,100,0,Green
+EMP0054,Shweta,Kumar,Shweta Kumar,FTE,Technical Lead,Arjun Gupta,80,0,Green
+EMP0055,Ayaan,Goel,Ayaan Goel,FTE,Technical Lead,Ganesh Vyas,60,0,Amber
+EMP0056,Usha,Goel,Usha Goel,FTE,Software Engineer,Naresh Yadav,100,0,Green
+EMP0057,Vihaan,Bansal,Vihaan Bansal,FTE,Associate Software Engineer,Preeti Gupta,80,0,Green
+EMP0058,Yuvraj,Parikh,Yuvraj Parikh,FTE,Engineering Manager,Vihaan Srivastava,100,0,Green
+EMP0059,Naresh,Dubey,Naresh Dubey,FTE,Senior QA Engineer,Asha Roy,100,0,Green
+EMP0060,Yogesh,Mehta,Yogesh Mehta,FTE,Trainee Engineer,Nilesh Dubey,80,0,Green
+EMP0061,Hitesh,Joshi,Hitesh Joshi,FTE,Staff Engineer,Ritesh Shah,100,0,Green
+EMP0062,Ritesh,Mishra,Ritesh Mishra,FTE,Technical Lead,Advait Gupta,80,0,Green
+EMP0063,Kamlesh,Patel,Kamlesh Patel,FTE,Principal Engineer,Kavita Mukherjee,100,0,Green
+EMP0064,Ganesh,Goel,Ganesh Goel,FTE,Junior Analyst,Rita Goel,80,0,Green
+EMP0065,Sita,Singhal,Sita Singhal,FTE,VP Engineering,Kavita Mukherjee,80,0,Green
+EMP0066,Nisha,Patel,Nisha Patel,FTE,Senior Software Engineer,Kamlesh Kumar,80,0,Green
+EMP0067,Ayaan,Thakkar,Ayaan Thakkar,FTE,QA Engineer,Hitesh Bansal,80,0,Green
+EMP0068,Sandesh,Verma,Sandesh Verma,FTE,Trainee Engineer,Kavita Mukherjee,80,0,Green
+EMP0069,Rakesh,Thakkar,Rakesh Thakkar,FTE,Lead Architect,Kavita Mukherjee,60,0,Amber
+EMP0070,Advait,Jain,Advait Jain,FTE,Associate QA Engineer,Vikram Mittal,30,1,Red
+EMP0071,Geeta,Bhatt,Geeta Bhatt,FTE,Technical Lead,Rudra Mahajan,80,0,Green
+EMP0072,Lata,Mahajan,Lata Mahajan,FTE,Engineering Manager,Mamta Patel,30,1,Red
+EMP0073,Ramesh,Mahajan,Ramesh Mahajan,FTE,Product Manager,Venkatesh Gupta,80,0,Green
+EMP0074,Sai,Chowdhury,Sai Chowdhury,FTE,Senior Developer,Vivaan Dubey,30,1,Red
+EMP0075,Sara,Reddy,Sara Reddy,FTE,Senior QA Engineer,Umesh Yadav,80,0,Green
+EMP0076,Priya,Mishra,Priya Mishra,FTE,Data Analyst,Pihu Naidu,80,0,Green
+EMP0077,Sunita,Das,Sunita Das,FTE,VP Engineering,Kavita Mukherjee,80,0,Green
+EMP0078,Arjun,Sen,Arjun Sen,FTE,Associate Software Engineer,Lokesh Gupta,30,1,Red
+EMP0079,Vikram,Desai,Vikram Desai,FTE,Senior Software Engineer,Ayaan Ghosh,80,0,Green
+EMP0080,Arya,Yadav,Arya Yadav,FTE,Trainee Engineer,Nilesh Mishra,100,0,Green
+EMP0081,Arya,Verma,Arya Verma,FTE,Software Engineer,Aditi Singh,80,0,Green
+EMP0082,Sunita,Reddy,Sunita Reddy,FTE,Senior Principal Engineer,Kavita Mukherjee,80,0,Green
+EMP0083,Shlok,Mukherjee,Shlok Mukherjee,FTE,Senior Software Engineer,Usha Agarwal,80,0,Green
+EMP0084,Aditya,Mukherjee,Aditya Mukherjee,FTE,Director,Kavita Mukherjee,80,0,Green
+EMP0085,Anika,Pandey,Anika Pandey,FTE,Lead Architect,Arjun Mittal,100,0,Green
+EMP0086,Shlok,Kumar,Shlok Kumar,FTE,Data Analyst,Kavita Mukherjee,80,0,Green
+EMP0087,Shaurya,Mahajan,Shaurya Mahajan,FTE,Head of Product,Kavita Mukherjee,30,1,Red
+EMP0088,Yuvraj,Desai,Yuvraj Desai,FTE,Technical Lead,Shaurya Dubey,100,0,Green
+EMP0089,Ananya,Shukla,Ananya Shukla,FTE,Junior Software Engineer,Kavita Mukherjee,30,1,Red
+EMP0090,Sai,Bhatt,Sai Bhatt,FTE,Senior Developer,Ayaan Singh,80,0,Green
+EMP0091,Asha,Singhal,Asha Singhal,FTE,Engineering Manager,Lata Jain,100,0,Green
+EMP0092,Fatima,Bansal,Fatima Bansal,FTE,Senior Developer,Suresh Kumar,100,0,Green
+EMP0093,Arya,Ghosh,Arya Ghosh,FTE,Senior Staff Engineer,Kavita Mukherjee,30,1,Red
+EMP0094,Ramesh,Srivastava,Ramesh Srivastava,FTE,Software Developer,Ramesh Banerjee,100,0,Green
+EMP0095,Asha,Gupta,Asha Gupta,FTE,Senior Director,Kavita Mukherjee,100,0,Green
+EMP0096,Rohan,Rao,Rohan Rao,FTE,Software Engineer,Ramesh Naidu,80,0,Green
+EMP0097,Fatima,Parikh,Fatima Parikh,FTE,Senior Developer,Sunita Mahajan,30,1,Red
+EMP0098,Hitesh,Bhatt,Hitesh Bhatt,FTE,QA Engineer,Diya Srivastava,30,1,Red
+EMP0099,Prisha,Desai,Prisha Desai,FTE,Associate Software Engineer,Aarav Kumar,80,0,Green
+EMP0100,Rajesh,Mukherjee,Rajesh Mukherjee,FTE,Senior Director,Kavita Mukherjee,100,0,Green
+EMP0101,Lokesh,Goel,Lokesh Goel,FTE,Principal Engineer,Preeti Chowdhury,30,1,Red
+EMP0102,Kabir,Parikh,Kabir Parikh,FTE,Senior Manager,Seeta Agarwal,60,0,Amber
+EMP0103,Kiran,Singh,Kiran Singh,FTE,Associate Software Engineer,Dinesh Agarwal,60,0,Amber
+EMP0104,Vihaan,Naidu,Vihaan Naidu,FTE,Head of Product,Kavita Mukherjee,80,0,Green
+EMP0105,Kamlesh,Goel,Kamlesh Goel,FTE,Software Developer,Geeta Bhatt,60,0,Amber
+EMP0106,Shlok,Joshi,Shlok Joshi,FTE,Senior Principal Engineer,Kavita Mukherjee,60,0,Amber
+EMP0107,Aditya,Pandey,Aditya Pandey,FTE,Senior QA Engineer,Kiara Kumar,60,0,Amber
+EMP0108,Aarav,Shah,Aarav Shah,FTE,Senior Developer,Vedant Tiwari,60,0,Amber
+EMP0109,Aditya,Tripathi,Aditya Tripathi,FTE,Senior Developer,Kavita Mukherjee,45,1,Red
+EMP0110,Shweta,Srivastava,Shweta Srivastava,FTE,Senior QA Engineer,Ishaan Ghosh,60,0,Amber
+EMP0111,Krishna,Reddy,Krishna Reddy,FTE,Data Analyst,Aadhya Reddy,100,0,Green
+EMP0112,Umesh,Shah,Umesh Shah,FTE,Head of Product,Kavita Mukherjee,100,0,Green
+EMP0113,Lokesh,Srivastava,Lokesh Srivastava,FTE,Associate QA Engineer,Vivaan Tripathi,100,0,Green
+EMP0114,Shweta,Bansal,Shweta Bansal,FTE,Senior Developer,Ishaan Verma,100,0,Green
+EMP0115,Suresh,Dubey,Suresh Dubey,FTE,Senior Staff Engineer,Kavita Mukherjee,100,0,Green
+EMP0116,Rajesh,Mittal,Rajesh Mittal,FTE,Senior Software Engineer,Dinesh Thakkar,60,0,Amber
+EMP0117,Aadhya,Mittal,Aadhya Mittal,FTE,Associate QA Engineer,Umesh Srivastava,100,0,Green
+EMP0118,Lokesh,Mahajan,Lokesh Mahajan,FTE,Associate QA Engineer,Myra Shah,100,0,Green
+EMP0119,Ishaan,Mehta,Ishaan Mehta,FTE,Senior Principal Engineer,Kavita Mukherjee,45,1,Red
+EMP0120,Fatima,Parikh,Fatima Parikh,FTE,Lead Architect,Anika Mukherjee,80,0,Green
+EMP0121,Ganesh,Modi,Ganesh Modi,FTE,Junior Software Engineer,Vedant Roy,100,0,Green
+EMP0122,Vihaan,Singhal,Vihaan Singhal,FTE,Senior Software Engineer,Ganesh Modi,100,0,Green
+EMP0123,Lokesh,Pandey,Lokesh Pandey,FTE,Senior Principal Engineer,Kavita Mukherjee,100,0,Green
+EMP0124,Aadhya,Modi,Aadhya Modi,FTE,Senior Developer,Kavya Chowdhury,45,1,Red
+EMP0125,Geeta,Pandey,Geeta Pandey,FTE,Junior Analyst,Sita Chowdhury,80,0,Green
+EMP0126,Vivaan,Joshi,Vivaan Joshi,FTE,QA Engineer,Sandesh Verma,100,0,Green
+EMP0127,Myra,Joshi,Myra Joshi,FTE,Staff Engineer,Vihaan Kumar,45,1,Red
+EMP0128,Umesh,Modi,Umesh Modi,FTE,Senior Director,Kavita Mukherjee,45,1,Red
+EMP0129,Mukesh,Mittal,Mukesh Mittal,FTE,Trainee Engineer,Shaurya Singhal,80,0,Green
+EMP0130,Sandesh,Joshi,Sandesh Joshi,FTE,Associate Software Engineer,Mukesh Roy,45,1,Red
+EMP0131,Atharv,Shah,Atharv Shah,FTE,Head of Product,Kavita Mukherjee,80,0,Green
+EMP0132,Vihaan,Vyas,Vihaan Vyas,FTE,Senior QA Engineer,Yogesh Agarwal,80,0,Green
+EMP0133,Vihaan,Mukherjee,Vihaan Mukherjee,FTE,Technical Lead,Rajesh Tripathi,80,0,Green
+EMP0134,Sara,Singhal,Sara Singhal,FTE,Engineering Manager,Ishaan Das,80,0,Green
+EMP0135,Vedant,Gupta,Vedant Gupta,FTE,Principal Engineer,Asha Kumar,80,0,Green
+EMP0136,Lata,Mishra,Lata Mishra,FTE,Senior QA Engineer,Umesh Agarwal,100,0,Green
+EMP0137,Hitesh,Mishra,Hitesh Mishra,FTE,Director,Kavita Mukherjee,80,0,Green
+EMP0138,Saanvi,Parikh,Saanvi Parikh,FTE,Senior Developer,Atharv Tripathi,80,0,Green
+EMP0139,Ayaan,Yadav,Ayaan Yadav,FTE,QA Engineer,Dinesh Bansal,80,0,Green
+EMP0140,Krishna,Pandey,Krishna Pandey,FTE,Software Engineer,Advait Joshi,80,0,Green
+EMP0141,Usha,Singhal,Usha Singhal,FTE,Software Engineer,Ishaan Gupta,100,0,Green
+EMP0142,Reyansh,Bansal,Reyansh Bansal,FTE,Business Analyst,Nilesh Mishra,80,0,Green
+EMP0143,Kriti,Naidu,Kriti Naidu,FTE,Product Manager,Kamlesh Kumar,45,1,Red
+EMP0144,Rohan,Singh,Rohan Singh,FTE,Director,Kamlesh Kumar,45,1,Red
+EMP0145,Preeti,Das,Preeti Das,FTE,Senior Manager,Ayaan Joshi,100,0,Green
+EMP0146,Shaurya,Chowdhury,Shaurya Chowdhury,FTE,Business Analyst,Aarav Bhatt,80,0,Green
+EMP0147,Nilesh,Mahajan,Nilesh Mahajan,FTE,Head of Product,Kamlesh Kumar,100,0,Green
+EMP0148,Kabir,Mittal,Kabir Mittal,FTE,Senior Developer,Kamlesh Kumar,100,0,Green
+EMP0149,Mahesh,Patel,Mahesh Patel,FTE,Software Engineer,Kriti Banerjee,100,0,Green
+EMP0150,Dinesh,Reddy,Dinesh Reddy,FTE,Senior Analyst,Abhimanyu Shukla,45,1,Red
+EMP0151,Sai,Desai,Sai Desai,FTE,Lead Architect,Sai Kumar,45,1,Red
+EMP0152,Usha,Tripathi,Usha Tripathi,FTE,Senior Analyst,Fatima Shukla,45,1,Red
+EMP0153,Kavya,Shukla,Kavya Shukla,FTE,Engineering Manager,Krishna Modi,80,0,Green
+EMP0154,Anika,Joshi,Anika Joshi,FTE,VP Engineering,Kamlesh Kumar,45,1,Red
+EMP0155,Vedant,Yadav,Vedant Yadav,FTE,Senior Manager,Aditya Shah,45,1,Red
+EMP0156,Ganesh,Srivastava,Ganesh Srivastava,FTE,Senior QA Engineer,Aditya Reddy,100,0,Green
+EMP0157,Myra,Dubey,Myra Dubey,FTE,Business Analyst,Kamlesh Kumar,100,0,Green
+EMP0158,Arjun,Joshi,Arjun Joshi,FTE,Associate Software Engineer,Anita Mishra,80,0,Green
+EMP0159,Sai,Shukla,Sai Shukla,FTE,Associate Software Engineer,Shaurya Singh,100,0,Green
+EMP0160,Suresh,Mahajan,Suresh Mahajan,FTE,Junior Analyst,Rudra Srivastava,45,1,Red
+EMP0161,Kabir,Roy,Kabir Roy,FTE,Senior Principal Engineer,Kamlesh Kumar,100,0,Green
+EMP0162,Ritesh,Jain,Ritesh Jain,FTE,Associate QA Engineer,Kamlesh Kumar,100,0,Green
+EMP0163,Suresh,Yadav,Suresh Yadav,FTE,Lead Architect,Umesh Singhal,45,1,Red
+EMP0164,Ishaan,Thakkar,Ishaan Thakkar,FTE,Senior Principal Engineer,Kamlesh Kumar,45,1,Red
+EMP0165,Siya,Desai,Siya Desai,FTE,Software Developer,Kamlesh Kumar,100,0,Green
+EMP0166,Rakesh,Naidu,Rakesh Naidu,FTE,Lead Architect,Rita Tripathi,45,1,Red
+EMP0167,Krishna,Gupta,Krishna Gupta,FTE,QA Engineer,Ishaan Jain,45,1,Red
+EMP0168,Kamlesh,Srivastava,Kamlesh Srivastava,FTE,Trainee Engineer,Rudra Kumar,80,0,Green
+EMP0169,Nisha,Goel,Nisha Goel,FTE,Junior Software Engineer,Usha Chowdhury,100,0,Green
+EMP0170,Rekha,Mukherjee,Rekha Mukherjee,FTE,Software Engineer,Naresh Agarwal,45,1,Red
+EMP0171,Yogesh,Sharma,Yogesh Sharma,FTE,Engineering Manager,Naresh Sharma,45,1,Red
+EMP0172,Mamta,Tripathi,Mamta Tripathi,FTE,Head of Product,Kamlesh Kumar,100,0,Green
+EMP0173,Venkatesh,Shukla,Venkatesh Shukla,FTE,QA Engineer,Aadhya Rao,60,0,Amber
+EMP0174,Nilesh,Tripathi,Nilesh Tripathi,FTE,Senior Director,Kamlesh Kumar,100,0,Green
+EMP0175,Atharv,Mehta,Atharv Mehta,FTE,Senior Software Engineer,Arjun Joshi,60,0,Amber
+EMP0176,Kabir,Mishra,Kabir Mishra,FTE,Senior Staff Engineer,Kamlesh Kumar,60,0,Amber
+EMP0177,Shlok,Kumar,Shlok Kumar,FTE,Software Engineer,Saanvi Verma,100,0,Green
+EMP0178,Yuvraj,Joshi,Yuvraj Joshi,FTE,Product Manager,Riya Agarwal,100,0,Green
+EMP0179,Shaurya,Vyas,Shaurya Vyas,FTE,Software Engineer,Rohan Mahajan,80,0,Green
+EMP0180,Pihu,Roy,Pihu Roy,FTE,Staff Engineer,Kamlesh Kumar,80,0,Green
+EMP0181,Shlok,Sen,Shlok Sen,FTE,Technical Lead,Nilesh Roy,100,0,Green
+EMP0182,Shlok,Singh,Shlok Singh,FTE,Junior Analyst,Ayaan Mukherjee,100,0,Green
+EMP0183,Diya,Gupta,Diya Gupta,FTE,Business Analyst,Kiran Parikh,60,0,Amber
+EMP0184,Sandesh,Singhal,Sandesh Singhal,FTE,Staff Engineer,Priya Thakkar,60,0,Amber
+EMP0185,Lokesh,Joshi,Lokesh Joshi,FTE,Senior Manager,Shaurya Parikh,60,0,Amber
+EMP0186,Geeta,Kumar,Geeta Kumar,FTE,Lead Architect,Venkatesh Singhal,60,0,Amber
+EMP0187,Sunita,Shukla,Sunita Shukla,FTE,Principal Engineer,Sandesh Thakkar,80,0,Green
+EMP0188,Sita,Roy,Sita Roy,FTE,Senior Director,Kamlesh Kumar,80,0,Green
+EMP0189,Anita,Ghosh,Anita Ghosh,FTE,Associate QA Engineer,Pari Tiwari,100,0,Green
+EMP0190,Yuvraj,Ghosh,Yuvraj Ghosh,FTE,Senior Director,Kamlesh Kumar,80,0,Green
+EMP0191,Vikram,Reddy,Vikram Reddy,FTE,Technical Lead,Yuvraj Sen,60,0,Amber
+EMP0192,Arjun,Naidu,Arjun Naidu,FTE,Senior Staff Engineer,Kamlesh Kumar,80,0,Green
+EMP0193,Vivaan,Shah,Vivaan Shah,FTE,Senior Analyst,Lata Gupta,100,0,Green
+EMP0194,Lata,Sen,Lata Sen,FTE,VP Engineering,Kamlesh Kumar,100,0,Green
+EMP0195,Yuvraj,Yadav,Yuvraj Yadav,FTE,QA Engineer,Aarav Desai,100,0,Green
+EMP0196,Krishna,Shah,Krishna Shah,FTE,Software Engineer,Neeti Mahajan,60,0,Amber
+EMP0197,Venkatesh,Roy,Venkatesh Roy,FTE,Data Analyst,Kamlesh Kumar,100,0,Green
+EMP0198,Rekha,Mishra,Rekha Mishra,FTE,Principal Engineer,Vivaan Vyas,60,0,Amber
+EMP0199,Aditya,Mishra,Aditya Mishra,FTE,Head of Product,Kamlesh Kumar,60,0,Amber
+EMP0200,Aarav,Agarwal,Aarav Agarwal,FTE,Junior Analyst,Reyansh Srivastava,80,0,Green
+EMP0201,Ganesh,Kumar,Ganesh Kumar,FTE,Senior Developer,Ritesh Pandey,100,0,Green
+EMP0202,Suresh,Gupta,Suresh Gupta,FTE,Software Engineer,Atharv Parikh,100,0,Green
+EMP0203,Umesh,Mahajan,Umesh Mahajan,FTE,Business Analyst,Kiara Patel,80,0,Green
+EMP0204,Arjun,Parikh,Arjun Parikh,FTE,Head of Product,Kamlesh Kumar,80,0,Green
+EMP0205,Aarav,Jain,Aarav Jain,FTE,Associate Software Engineer,Hitesh Pandey,60,0,Amber
+EMP0206,Nilesh,Kumar,Nilesh Kumar,FTE,Data Analyst,Riya Srivastava,60,0,Amber
+EMP0207,Pooja,Srivastava,Pooja Srivastava,FTE,Senior Principal Engineer,Kamlesh Kumar,60,0,Amber
+EMP0208,Ramesh,Chowdhury,Ramesh Chowdhury,FTE,Junior Analyst,Pihu Singh,80,0,Green
+EMP0209,Venkatesh,Roy,Venkatesh Roy,FTE,Business Analyst,Nilesh Sen,60,0,Amber
+EMP0210,Sandesh,Tripathi,Sandesh Tripathi,FTE,Associate Software Engineer,Dinesh Yadav,80,0,Green
+EMP0211,Mahesh,Patel,Mahesh Patel,FTE,Senior Developer,Kamlesh Kumar,80,0,Green
+EMP0212,Anika,Das,Anika Das,FTE,Director,Kamlesh Kumar,80,0,Green
+EMP0213,Nilesh,Sen,Nilesh Sen,FTE,VP Engineering,Kamlesh Kumar,80,0,Green
+EMP0214,Sai,Reddy,Sai Reddy,FTE,Business Analyst,Kamlesh Kumar,80,0,Green
+EMP0215,Priya,Mukherjee,Priya Mukherjee,FTE,Staff Engineer,Ritesh Sen,60,0,Amber
+EMP0216,Shlok,Gupta,Shlok Gupta,FTE,Senior Manager,Yuvraj Dubey,60,0,Amber
+EMP0217,Kiran,Tripathi,Kiran Tripathi,FTE,Senior Software Engineer,Ritesh Tripathi,80,0,Green
+EMP0218,Ritesh,Sharma,Ritesh Sharma,FTE,Senior Director,Kamlesh Kumar,100,0,Green
+EMP0219,Kiara,Mittal,Kiara Mittal,FTE,Senior Developer,Shaurya Mishra,100,0,Green
+EMP0220,Lokesh,Yadav,Lokesh Yadav,FTE,Junior Analyst,Rakesh Verma,80,0,Green
+EMP0221,Sushma,Thakkar,Sushma Thakkar,FTE,Senior Developer,Mahesh Sen,80,0,Green
+EMP0222,Kabir,Das,Kabir Das,FTE,Staff Engineer,Pooja Roy,60,0,Amber
+EMP0223,Reyansh,Parikh,Reyansh Parikh,FTE,Senior QA Engineer,Ritesh Das,60,0,Amber
+EMP0224,Preeti,Thakkar,Preeti Thakkar,FTE,VP Engineering,Kamlesh Kumar,80,0,Green
+EMP0225,Shweta,Gupta,Shweta Gupta,FTE,Senior Principal Engineer,Kamlesh Kumar,100,0,Green
+EMP0226,Kiran,Desai,Kiran Desai,FTE,Senior Developer,Vihaan Kumar,60,0,Amber
+EMP0227,Fatima,Goel,Fatima Goel,FTE,Head of Product,Kamlesh Kumar,60,0,Amber
+EMP0228,Vedant,Das,Vedant Das,FTE,Senior Principal Engineer,Kamlesh Kumar,80,0,Green
+EMP0229,Venkatesh,Dubey,Venkatesh Dubey,FTE,Software Developer,Advait Dubey,80,0,Green
+EMP0230,Yogesh,Jain,Yogesh Jain,FTE,Lead Architect,Naresh Mishra,80,0,Green
+EMP0231,Aditya,Tiwari,Aditya Tiwari,FTE,Senior Analyst,Rohan Das,60,0,Amber
+EMP0232,Naresh,Dubey,Naresh Dubey,FTE,Business Analyst,Vedant Naidu,80,0,Green
+EMP0233,Anika,Vyas,Anika Vyas,FTE,Technical Lead,Dinesh Patel,100,0,Green
+EMP0234,Ishaan,Sharma,Ishaan Sharma,FTE,Engineering Manager,Kamlesh Kumar,60,0,Amber
+EMP0235,Ramesh,Shah,Ramesh Shah,FTE,Senior Director,Kamlesh Kumar,60,0,Amber
+EMP0236,Asha,Sen,Asha Sen,FTE,Software Developer,Vikram Das,100,0,Green
+EMP0237,Vedant,Das,Vedant Das,FTE,Associate Software Engineer,Aditya Mahajan,60,0,Amber
+EMP0238,Ganesh,Jain,Ganesh Jain,FTE,Associate QA Engineer,Ayaan Bhatt,100,0,Green
+EMP0239,Kiran,Shah,Kiran Shah,FTE,Senior Director,Kamlesh Kumar,80,0,Green
+EMP0240,Geeta,Bhatt,Geeta Bhatt,FTE,Senior Director,Kamlesh Kumar,100,0,Green
+EMP0241,Rajesh,Tiwari,Rajesh Tiwari,FTE,Head of Product,Kamlesh Kumar,60,0,Amber
+EMP0242,Kavya,Agarwal,Kavya Agarwal,FTE,Junior Analyst,Kriti Sen,100,0,Green
+EMP0243,Suresh,Das,Suresh Das,FTE,Senior Director,Kamlesh Kumar,60,0,Amber
+EMP0244,Kabir,Bhatt,Kabir Bhatt,FTE,Senior Staff Engineer,Kamlesh Kumar,80,0,Green
+EMP0245,Yogesh,Mukherjee,Yogesh Mukherjee,FTE,Lead Architect,Shaurya Gupta,100,0,Green
+EMP0246,Mukesh,Joshi,Mukesh Joshi,FTE,Senior Analyst,Kamlesh Kumar,60,0,Amber
+EMP0247,Shaurya,Parikh,Shaurya Parikh,FTE,Senior QA Engineer,Hitesh Sharma,80,0,Green
+EMP0248,Pari,Sharma,Pari Sharma,FTE,Principal Engineer,Yuvraj Roy,100,0,Green
+EMP0249,Ritesh,Mahajan,Ritesh Mahajan,FTE,Staff Engineer,Shaurya Chowdhury,80,0,Green
+EMP0250,Ramesh,Tripathi,Ramesh Tripathi,FTE,Associate Software Engineer,Ramesh Desai,60,0,Amber
+EMP0251,Venkatesh,Banerjee,Venkatesh Banerjee,FTE,Senior Principal Engineer,Kamlesh Kumar,100,0,Green
+EMP0252,Nilesh,Singh,Nilesh Singh,FTE,Senior QA Engineer,Shaurya Ghosh,100,0,Green
+EMP0253,Riya,Pandey,Riya Pandey,FTE,Senior Software Engineer,Dinesh Shukla,60,0,Amber
+EMP0254,Kabir,Kumar,Kabir Kumar,FTE,Product Manager,Ishaan Kumar,60,0,Amber
+EMP0255,Sita,Modi,Sita Modi,FTE,Lead Architect,Kamlesh Kumar,60,0,Amber
+EMP0256,Rakesh,Singh,Rakesh Singh,FTE,Engineering Manager,Kamlesh Kumar,60,0,Amber
+EMP0257,Geeta,Verma,Geeta Verma,FTE,Technical Lead,Atharv Mahajan,80,0,Green
+EMP0258,Atharv,Parikh,Atharv Parikh,FTE,Technical Lead,Kamlesh Kumar,100,0,Green
+EMP0259,Aarav,Joshi,Aarav Joshi,FTE,Senior Analyst,Hitesh Thakkar,100,0,Green
+EMP0260,Kiran,Mukherjee,Kiran Mukherjee,FTE,Senior Developer,Rakesh Banerjee,100,0,Green
+EMP0261,Vihaan,Yadav,Vihaan Yadav,FTE,Business Analyst,Rudra Chowdhury,60,0,Amber
+EMP0262,Kamlesh,Desai,Kamlesh Desai,FTE,Software Developer,Dinesh Jain,100,0,Green
+EMP0263,Kamlesh,Pandey,Kamlesh Pandey,FTE,Trainee Engineer,Dinesh Verma,80,0,Green
+EMP0264,Abhimanyu,Agarwal,Abhimanyu Agarwal,FTE,Trainee Engineer,Kavita Mehta,60,0,Amber
+EMP0265,Rohan,Mukherjee,Rohan Mukherjee,FTE,Lead Architect,Reyansh Thakkar,80,0,Green
+EMP0266,Shaurya,Verma,Shaurya Verma,FTE,Senior Manager,Usha Jain,80,0,Green
+EMP0267,Riya,Das,Riya Das,FTE,Senior Analyst,Umesh Bansal,100,0,Green
+EMP0268,Kabir,Gupta,Kabir Gupta,FTE,Senior Analyst,Aditya Sharma,100,0,Green
+EMP0269,Lokesh,Vyas,Lokesh Vyas,FTE,Software Developer,Mukesh Mukherjee,80,0,Green
+EMP0270,Arya,Parikh,Arya Parikh,FTE,Associate Software Engineer,Usha Rao,80,0,Green
+EMP0271,Sandesh,Mehta,Sandesh Mehta,FTE,QA Engineer,Ishaan Vyas,80,0,Green
+EMP0272,Vedant,Verma,Vedant Verma,FTE,Software Developer,Geeta Kumar,100,0,Green
+EMP0273,Rajesh,Mittal,Rajesh Mittal,FTE,Lead Architect,Vikram Yadav,60,0,Amber
+EMP0274,Vikram,Bansal,Vikram Bansal,FTE,Junior Analyst,Kriti Reddy,80,0,Green
+EMP0275,Aarav,Banerjee,Aarav Banerjee,FTE,Director,Kamlesh Kumar,100,0,Green
+EMP0276,Ayaan,Modi,Ayaan Modi,FTE,Trainee Engineer,Shlok Shukla,100,0,Green
+EMP0277,Shlok,Verma,Shlok Verma,FTE,Associate Software Engineer,Riya Desai,80,0,Green
+EMP0278,Rudra,Desai,Rudra Desai,FTE,Senior Staff Engineer,Kamlesh Kumar,60,0,Amber
+EMP0279,Sandesh,Joshi,Sandesh Joshi,FTE,Junior Software Engineer,Yogesh Mittal,60,0,Amber
+EMP0280,Venkatesh,Modi,Venkatesh Modi,FTE,Senior Manager,Arjun Mehta,100,0,Green
+EMP0281,Rajesh,Goel,Rajesh Goel,FTE,Senior QA Engineer,Nisha Chowdhury,60,0,Amber
+EMP0282,Ganesh,Patel,Ganesh Patel,FTE,Senior Staff Engineer,Kamlesh Kumar,100,0,Green
+EMP0283,Sai,Thakkar,Sai Thakkar,FTE,Engineering Manager,Rekha Sharma,100,0,Green
+EMP0284,Shreya,Mittal,Shreya Mittal,FTE,Associate Software Engineer,Geeta Patel,80,0,Green
+EMP0285,Lokesh,Desai,Lokesh Desai,FTE,Technical Lead,Kamlesh Tiwari,100,0,Green
+EMP0286,Ramesh,Sen,Ramesh Sen,FTE,Senior Developer,Kamlesh Kumar,60,0,Amber
+EMP0287,Reyansh,Mahajan,Reyansh Mahajan,FTE,Engineering Manager,Yogesh Reddy,100,0,Green
+EMP0288,Aarav,Sen,Aarav Sen,FTE,Junior Software Engineer,Naresh Patel,80,0,Green
+EMP0289,Arya,Mahajan,Arya Mahajan,FTE,Senior Principal Engineer,Kamlesh Kumar,100,0,Green
+EMP0290,Sushma,Pandey,Sushma Pandey,FTE,Business Analyst,Atharv Srivastava,100,0,Green
+EMP0291,Mamta,Mehta,Mamta Mehta,FTE,Director,Kamlesh Kumar,60,0,Amber
+EMP0292,Yuvraj,Mittal,Yuvraj Mittal,FTE,Product Manager,Mamta Tiwari,80,0,Green
+EMP0293,Kavita,Vyas,Kavita Vyas,FTE,Associate QA Engineer,Rakesh Desai,100,0,Green
+EMP0294,Aditya,Banerjee,Aditya Banerjee,FTE,Senior Software Engineer,Fatima Thakkar,100,0,Green
+EMP0295,Arjun,Naidu,Arjun Naidu,FTE,Technical Lead,Ramesh Naidu,60,0,Amber
+EMP0296,Mamta,Joshi,Mamta Joshi,FTE,Senior QA Engineer,Mukesh Banerjee,100,0,Green
+EMP0297,Reyansh,Mehta,Reyansh Mehta,FTE,Senior QA Engineer,Krishna Mehta,60,0,Amber
+EMP0298,Nisha,Das,Nisha Das,FTE,Senior Staff Engineer,Kamlesh Kumar,60,0,Amber
+EMP0299,Rakesh,Parikh,Rakesh Parikh,FTE,Senior Software Engineer,Fatima Mittal,100,0,Green
+EMP0300,Shaurya,Naidu,Shaurya Naidu,FTE,Junior Software Engineer,Mukesh Das,100,0,Green
+EMP0301,Kabir,Bansal,Kabir Bansal,FTE,Senior QA Engineer,Ishaan Goel,60,0,Amber
+EMP0302,Shaurya,Sen,Shaurya Sen,FTE,Director,Kamlesh Kumar,60,0,Amber
+EMP0303,Dinesh,Dubey,Dinesh Dubey,FTE,Software Developer,Vedant Mittal,100,0,Green
+EMP0304,Mukesh,Sharma,Mukesh Sharma,FTE,Senior Director,Kamlesh Kumar,60,0,Amber
+EMP0305,Anika,Singhal,Anika Singhal,FTE,Head of Product,Kamlesh Kumar,60,0,Amber
+EMP0306,Hitesh,Thakkar,Hitesh Thakkar,FTE,Senior Analyst,Rohan Sen,80,0,Green
+EMP0307,Riya,Mukherjee,Riya Mukherjee,FTE,Director,Kamlesh Kumar,60,0,Amber
+EMP0308,Mahesh,Shah,Mahesh Shah,FTE,Software Engineer,Advait Kumar,80,0,Green
+EMP0309,Nilesh,Reddy,Nilesh Reddy,FTE,QA Engineer,Rakesh Tripathi,60,0,Amber
+EMP0310,Kavya,Mukherjee,Kavya Mukherjee,FTE,Engineering Manager,Kamlesh Kumar,80,0,Green
+EMP0311,Fatima,Gupta,Fatima Gupta,FTE,Head of Product,Kamlesh Kumar,100,0,Green
+EMP0312,Rudra,Banerjee,Rudra Banerjee,FTE,Software Developer,Hitesh Mishra,100,0,Green
+EMP0313,Ishaan,Mukherjee,Ishaan Mukherjee,FTE,Engineering Manager,Pooja Mittal,100,0,Green
+EMP0314,Pooja,Mishra,Pooja Mishra,FTE,Data Analyst,Mukesh Pandey,60,0,Amber
+EMP0315,Sara,Tripathi,Sara Tripathi,FTE,Senior Developer,Shaurya Yadav,80,0,Green
+EMP0316,Arya,Tripathi,Arya Tripathi,FTE,Senior Developer,Kamlesh Kumar,80,0,Green
+EMP0317,Seeta,Mittal,Seeta Mittal,FTE,Senior QA Engineer,Mukesh Vyas,80,0,Green
+EMP0318,Ayaan,Chowdhury,Ayaan Chowdhury,FTE,Senior Software Engineer,Ritesh Mishra,100,0,Green
+EMP0319,Abhimanyu,Tiwari,Abhimanyu Tiwari,FTE,Software Developer,Atharv Tripathi,60,0,Amber
+EMP0320,Umesh,Roy,Umesh Roy,FTE,Software Engineer,Vikram Reddy,100,0,Green
+EMP0321,Lokesh,Roy,Lokesh Roy,FTE,Business Analyst,Advait Das,100,0,Green
+EMP0322,Ritesh,Shah,Ritesh Shah,FTE,Trainee Engineer,Pari Mittal,100,0,Green
+EMP0323,Riya,Roy,Riya Roy,FTE,Senior Manager,Ritesh Joshi,100,0,Green
+EMP0324,Yogesh,Mishra,Yogesh Mishra,FTE,Trainee Engineer,Sai Shah,100,0,Green
+EMP0325,Advait,Roy,Advait Roy,FTE,Data Analyst,Ramesh Banerjee,60,0,Amber
+EMP0326,Reyansh,Tiwari,Reyansh Tiwari,FTE,Business Analyst,Vedant Parikh,100,0,Green
+EMP0327,Kabir,Gupta,Kabir Gupta,FTE,Technical Lead,Anika Jain,80,0,Green
+EMP0328,Mukesh,Goel,Mukesh Goel,FTE,Head of Product,Kamlesh Kumar,60,0,Amber
+EMP0329,Umesh,Goel,Umesh Goel,FTE,Senior Software Engineer,Reyansh Desai,60,0,Amber
+EMP0330,Mukesh,Shah,Mukesh Shah,FTE,Software Developer,Kriti Rao,60,0,Amber
+EMP0331,Kriti,Joshi,Kriti Joshi,FTE,Data Analyst,Abhimanyu Joshi,100,0,Green
+EMP0332,Priya,Naidu,Priya Naidu,FTE,Staff Engineer,Rohan Sen,60,0,Amber
+EMP0333,Sara,Gupta,Sara Gupta,FTE,VP Engineering,Kamlesh Kumar,60,0,Amber
+EMP0334,Priya,Pandey,Priya Pandey,FTE,Business Analyst,Vikram Shukla,60,0,Amber
+EMP0335,Sandesh,Patel,Sandesh Patel,FTE,Senior Director,Kamlesh Kumar,100,0,Green
+EMP0336,Saanvi,Das,Saanvi Das,FTE,Junior Software Engineer,Rajesh Gupta,100,0,Green
+EMP0337,Ayaan,Goel,Ayaan Goel,FTE,Software Engineer,Aditi Das,80,0,Green
+EMP0338,Kamlesh,Patel,Kamlesh Patel,FTE,Technical Lead,Aditya Gupta,80,0,Green
+EMP0339,Sai,Naidu,Sai Naidu,FTE,Principal Engineer,Kamlesh Gupta,80,0,Green
+EMP0340,Ritesh,Roy,Ritesh Roy,FTE,Associate QA Engineer,Smriti Agarwal,60,0,Amber
+EMP0341,Kabir,Mehta,Kabir Mehta,FTE,Senior Developer,Arjun Shah,80,0,Green
+EMP0342,Suresh,Shah,Suresh Shah,FTE,Senior QA Engineer,Shlok Das,80,0,Green
+EMP0343,Shlok,Chowdhury,Shlok Chowdhury,FTE,Junior Analyst,Ayaan Sen,100,0,Green
+EMP0344,Suresh,Singhal,Suresh Singhal,FTE,Senior QA Engineer,Vihaan Mukherjee,100,0,Green
+EMP0345,Aditya,Tripathi,Aditya Tripathi,FTE,Senior Director,Kamlesh Kumar,80,0,Green
+EMP0346,Rajesh,Modi,Rajesh Modi,FTE,Senior Software Engineer,Sai Chowdhury,60,0,Amber
+EMP0347,Geeta,Goel,Geeta Goel,FTE,Product Manager,Aditya Verma,80,0,Green
+EMP0348,Arjun,Pandey,Arjun Pandey,FTE,Director,Kamlesh Kumar,60,0,Amber
+EMP0349,Mamta,Goel,Mamta Goel,FTE,QA Engineer,Yogesh Thakkar,80,0,Green
+EMP0350,Rekha,Srivastava,Rekha Srivastava,FTE,Associate QA Engineer,Mamta Tripathi,60,0,Amber
+EMP0351,Venkatesh,Mittal,Venkatesh Mittal,FTE,Software Engineer,Kamlesh Kumar,80,0,Green
+EMP0352,Atharv,Das,Atharv Das,FTE,Software Engineer,Nilesh Tripathi,80,0,Green
+EMP0353,Lokesh,Mehta,Lokesh Mehta,FTE,Software Engineer,Vedant Goel,80,0,Green
+EMP0354,Yuvraj,Jain,Yuvraj Jain,FTE,Junior Software Engineer,Arjun Srivastava,100,0,Green
+EMP0355,Arjun,Patel,Arjun Patel,FTE,Junior Software Engineer,Smriti Tiwari,60,0,Amber
+EMP0356,Lokesh,Vyas,Lokesh Vyas,FTE,Head of Product,Kamlesh Kumar,60,0,Amber
+EMP0357,Ritesh,Shukla,Ritesh Shukla,FTE,VP Engineering,Kamlesh Kumar,80,0,Green
+EMP0358,Sushma,Shah,Sushma Shah,FTE,Product Manager,Umesh Desai,80,0,Green
+EMP0359,Geeta,Mehta,Geeta Mehta,FTE,Director,Kamlesh Kumar,60,0,Amber
+EMP0360,Lokesh,Desai,Lokesh Desai,FTE,Software Engineer,Shweta Vyas,80,0,Green
+EMP0361,Ayaan,Shukla,Ayaan Shukla,FTE,Senior Principal Engineer,Kamlesh Kumar,100,0,Green
+EMP0362,Nilesh,Parikh,Nilesh Parikh,FTE,Engineering Manager,Lokesh Agarwal,60,0,Amber
+EMP0363,Yuvraj,Bansal,Yuvraj Bansal,FTE,Senior Staff Engineer,Kamlesh Kumar,100,0,Green
+EMP0364,Mahesh,Das,Mahesh Das,FTE,Trainee Engineer,Sandesh Sen,100,0,Green
+EMP0365,Shlok,Gupta,Shlok Gupta,FTE,Junior Software Engineer,Lokesh Ghosh,100,0,Green
+EMP0366,Saanvi,Bansal,Saanvi Bansal,FTE,Business Analyst,Sushma Thakkar,100,0,Green
+EMP0367,Arjun,Naidu,Arjun Naidu,FTE,QA Engineer,Hitesh Mehta,80,0,Green
+EMP0368,Kiara,Mishra,Kiara Mishra,FTE,Lead Architect,Ayaan Mahajan,80,0,Green
+EMP0369,Diya,Singh,Diya Singh,FTE,Associate Software Engineer,Sandesh Singh,80,0,Green
+EMP0370,Krishna,Goel,Krishna Goel,FTE,VP Engineering,Kamlesh Kumar,60,0,Amber
+EMP0371,Sushma,Roy,Sushma Roy,FTE,Senior QA Engineer,Shlok Pandey,100,0,Green
+EMP0372,Sai,Mahajan,Sai Mahajan,FTE,Senior Analyst,Kamlesh Kumar,80,0,Green
+EMP0373,Neeti,Jain,Neeti Jain,FTE,Senior Software Engineer,Vedant Yadav,60,0,Amber
+EMP0374,Arjun,Desai,Arjun Desai,FTE,Associate Software Engineer,Smriti Bhatt,80,0,Green
+EMP0375,Rekha,Sen,Rekha Sen,FTE,Technical Lead,Dinesh Naidu,100,0,Green
+EMP0376,Kriti,Kumar,Kriti Kumar,FTE,QA Engineer,Vikram Agarwal,80,0,Green
+EMP0377,Mahesh,Reddy,Mahesh Reddy,FTE,Business Analyst,Ayaan Sharma,60,0,Amber
+EMP0378,Ritesh,Joshi,Ritesh Joshi,FTE,Senior Manager,Nilesh Goel,80,0,Green
+EMP0379,Dinesh,Kumar,Dinesh Kumar,FTE,Senior Analyst,Aarav Shukla,80,0,Green
+EMP0380,Kamlesh,Mishra,Kamlesh Mishra,FTE,Senior QA Engineer,Naresh Yadav,100,0,Green
+EMP0381,Kabir,Modi,Kabir Modi,FTE,Head of Product,Kamlesh Kumar,80,0,Green
+EMP0382,Lokesh,Mishra,Lokesh Mishra,FTE,Associate Software Engineer,Anika Thakkar,80,0,Green
+EMP0383,Rajesh,Thakkar,Rajesh Thakkar,FTE,Associate QA Engineer,Aditi Agarwal,100,0,Green
+EMP0384,Asha,Verma,Asha Verma,FTE,Junior Analyst,Mahesh Shukla,100,0,Green
+EMP0385,Vihaan,Dubey,Vihaan Dubey,FTE,Staff Engineer,Yogesh Agarwal,60,0,Amber
+EMP0386,Shaurya,Patel,Shaurya Patel,FTE,Senior Manager,Abhimanyu Shah,100,0,Green
+EMP0387,Pihu,Sen,Pihu Sen,FTE,Product Manager,Rajesh Joshi,100,0,Green
+EMP0388,Arjun,Dubey,Arjun Dubey,FTE,Lead Architect,Sushma Gupta,60,0,Amber
+EMP0389,Krishna,Verma,Krishna Verma,FTE,Junior Software Engineer,Atharv Gupta,80,0,Green
+EMP0390,Mahesh,Sharma,Mahesh Sharma,FTE,Engineering Manager,Abhimanyu Yadav,60,0,Amber
+EMP0391,Arjun,Naidu,Arjun Naidu,FTE,Staff Engineer,Myra Reddy,60,0,Amber
+EMP0392,Abhimanyu,Das,Abhimanyu Das,FTE,Business Analyst,Aditya Tiwari,60,0,Amber
+EMP0393,Vedant,Gupta,Vedant Gupta,FTE,Product Manager,Kabir Reddy,60,0,Amber
+EMP0394,Shaurya,Ghosh,Shaurya Ghosh,FTE,Associate Software Engineer,Ritesh Mukherjee,100,0,Green
+EMP0395,Arya,Kumar,Arya Kumar,FTE,Engineering Manager,Ishaan Tiwari,100,0,Green
+EMP0396,Mamta,Bhatt,Mamta Bhatt,FTE,Senior Software Engineer,Mamta Singhal,80,0,Green
+EMP0397,Kamlesh,Rao,Kamlesh Rao,FTE,Senior Developer,Kamlesh Kumar,60,0,Amber
+EMP0398,Rudra,Reddy,Rudra Reddy,FTE,Junior Software Engineer,Yogesh Tripathi,60,0,Amber
+EMP0399,Rita,Agarwal,Rita Agarwal,FTE,Associate QA Engineer,Venkatesh Pandey,100,0,Green
+EMP0400,Abhimanyu,Bansal,Abhimanyu Bansal,FTE,Principal Engineer,Kriti Mukherjee,80,0,Green
+EMP0401,Sandesh,Shukla,Sandesh Shukla,FTE,Staff Engineer,Sai Tripathi,60,0,Amber
+EMP0402,Vihaan,Pandey,Vihaan Pandey,FTE,Engineering Manager,Anika Mukherjee,80,0,Green
+EMP0403,Venkatesh,Modi,Venkatesh Modi,FTE,Data Analyst,Kamlesh Verma,60,0,Amber
+EMP0404,Ganesh,Srivastava,Ganesh Srivastava,FTE,Data Analyst,Diya Kumar,80,0,Green
+EMP0405,Nilesh,Thakkar,Nilesh Thakkar,FTE,Software Developer,Arjun Banerjee,60,0,Amber
+EMP0406,Rohan,Desai,Rohan Desai,FTE,Data Analyst,Ramesh Srivastava,100,0,Green
+EMP0407,Smriti,Mittal,Smriti Mittal,FTE,Business Analyst,Vedant Tiwari,100,0,Green
+EMP0408,Venkatesh,Rao,Venkatesh Rao,FTE,Staff Engineer,Mukesh Sen,100,0,Green
+EMP0409,Shlok,Jain,Shlok Jain,FTE,Senior Software Engineer,Ramesh Banerjee,80,0,Green
+EMP0410,Pooja,Sen,Pooja Sen,FTE,Senior QA Engineer,Yuvraj Yadav,60,0,Amber
+EMP0411,Krishna,Verma,Krishna Verma,FTE,Junior Software Engineer,Rudra Desai,100,0,Green
+EMP0412,Vivaan,Mahajan,Vivaan Mahajan,FTE,Junior Analyst,Ishaan Bansal,60,0,Amber
+EMP0413,Aditya,Shukla,Aditya Shukla,FTE,Lead Architect,Sushma Tripathi,80,0,Green
+EMP0414,Krishna,Desai,Krishna Desai,FTE,Senior Manager,Umesh Mehta,100,0,Green
+EMP0415,Ishaan,Srivastava,Ishaan Srivastava,FTE,Senior Director,Kamlesh Kumar,100,0,Green
+EMP0416,Anika,Modi,Anika Modi,FTE,Software Engineer,Neeti Dubey,80,0,Green
+EMP0417,Vihaan,Dubey,Vihaan Dubey,FTE,Business Analyst,Dinesh Verma,100,0,Green
+EMP0418,Ayaan,Shah,Ayaan Shah,FTE,Senior Staff Engineer,Kamlesh Kumar,80,0,Green
+EMP0419,Abhimanyu,Banerjee,Abhimanyu Banerjee,FTE,Senior Software Engineer,Aadhya Sharma,60,0,Amber
+EMP0420,Kabir,Bansal,Kabir Bansal,FTE,Senior QA Engineer,Ritesh Singh,80,0,Green
+EMP0421,Rajesh,Gupta,Rajesh Gupta,FTE,Business Analyst,Vivaan Mishra,80,0,Green
+EMP0422,Saanvi,Naidu,Saanvi Naidu,FTE,QA Engineer,Advait Mahajan,100,0,Green
+EMP0423,Vihaan,Mahajan,Vihaan Mahajan,FTE,Software Developer,Ira Naidu,80,0,Green
+EMP0424,Ira,Mittal,Ira Mittal,FTE,Senior Developer,Anita Mehta,80,0,Green
+EMP0425,Vikram,Mishra,Vikram Mishra,FTE,Head of Product,Kamlesh Kumar,60,0,Amber
+EMP0426,Pari,Thakkar,Pari Thakkar,FTE,Senior QA Engineer,Umesh Tiwari,60,0,Amber
+EMP0427,Vikram,Mittal,Vikram Mittal,FTE,Software Developer,Aditya Goel,100,0,Green
+EMP0428,Shreya,Thakkar,Shreya Thakkar,FTE,Junior Analyst,Rohan Ghosh,100,0,Green
+EMP0429,Abhimanyu,Agarwal,Abhimanyu Agarwal,FTE,Engineering Manager,Pooja Thakkar,60,0,Amber
+EMP0430,Suresh,Ghosh,Suresh Ghosh,FTE,Business Analyst,Arjun Modi,100,0,Green
+EMP0431,Ayaan,Reddy,Ayaan Reddy,FTE,Director,Kamlesh Kumar,80,0,Green
+EMP0432,Lata,Verma,Lata Verma,FTE,Principal Engineer,Abhimanyu Verma,100,0,Green
+EMP0433,Lata,Jain,Lata Jain,FTE,QA Engineer,Kavya Tripathi,60,0,Amber
+EMP0434,Kavya,Banerjee,Kavya Banerjee,FTE,Software Engineer,Sita Dubey,60,0,Amber
+EMP0435,Vihaan,Srivastava,Vihaan Srivastava,FTE,Engineering Manager,Vikram Ghosh,80,0,Green
+EMP0436,Sushma,Das,Sushma Das,FTE,Technical Lead,Advait Naidu,100,0,Green
+EMP0437,Vivaan,Parikh,Vivaan Parikh,FTE,Associate QA Engineer,Shaurya Naidu,80,0,Green
+EMP0438,Reyansh,Roy,Reyansh Roy,FTE,Senior Developer,Naresh Goel,60,0,Amber
+EMP0439,Vivaan,Banerjee,Vivaan Banerjee,FTE,Senior QA Engineer,Rajesh Bansal,80,0,Green
+EMP0440,Diya,Mehta,Diya Mehta,FTE,Senior Principal Engineer,Kamlesh Kumar,80,0,Green
+EMP0441,Preeti,Reddy,Preeti Reddy,FTE,Technical Lead,Abhimanyu Modi,60,0,Amber
+EMP0442,Sandesh,Mehta,Sandesh Mehta,FTE,Senior Director,Kamlesh Kumar,60,0,Amber
+EMP0443,Pari,Banerjee,Pari Banerjee,FTE,Junior Analyst,Kamlesh Kumar,100,0,Green
+EMP0444,Atharv,Mehta,Atharv Mehta,FTE,Senior Principal Engineer,Kamlesh Kumar,100,0,Green
+EMP0445,Yuvraj,Rao,Yuvraj Rao,FTE,Junior Software Engineer,Aadhya Mittal,60,0,Amber
+EMP0446,Lokesh,Shah,Lokesh Shah,FTE,Senior Software Engineer,Mukesh Sen,80,0,Green
+EMP0447,Shreya,Ghosh,Shreya Ghosh,FTE,Senior Developer,Kabir Bhatt,80,0,Green
+EMP0448,Venkatesh,Srivastava,Venkatesh Srivastava,FTE,Senior Principal Engineer,Kamlesh Kumar,80,0,Green
+EMP0449,Ayaan,Dubey,Ayaan Dubey,FTE,Director,Kamlesh Kumar,100,0,Green
+EMP0450,Mahesh,Mehta,Mahesh Mehta,FTE,Business Analyst,Ira Das,100,0,Green
+EMP0451,Kavya,Verma,Kavya Verma,FTE,Trainee Engineer,Ganesh Rao,80,0,Green
+EMP0452,Rohan,Shukla,Rohan Shukla,FTE,Engineering Manager,Aditya Goel,60,0,Amber
+EMP0453,Ramesh,Joshi,Ramesh Joshi,FTE,Junior Software Engineer,Sandesh Sen,60,0,Amber
+EMP0454,Abhimanyu,Parikh,Abhimanyu Parikh,FTE,Junior Software Engineer,Kamlesh Kumar,80,0,Green
+EMP0455,Sai,Sen,Sai Sen,FTE,Business Analyst,Atharv Shah,60,0,Amber
+EMP0456,Shlok,Rao,Shlok Rao,FTE,Head of Product,Kamlesh Kumar,80,0,Green
+EMP0457,Umesh,Mahajan,Umesh Mahajan,FTE,VP Engineering,Kamlesh Kumar,60,0,Amber
+EMP0458,Vedant,Mahajan,Vedant Mahajan,FTE,Principal Engineer,Kiara Mukherjee,80,0,Green
+EMP0459,Sai,Bansal,Sai Bansal,FTE,VP Engineering,Kamlesh Kumar,100,0,Green
+EMP0460,Neeti,Modi,Neeti Modi,FTE,Software Developer,Ayaan Rao,60,0,Amber
+EMP0461,Rudra,Modi,Rudra Modi,FTE,Senior Analyst,Kiara Roy,100,0,Green
+EMP0462,Arjun,Joshi,Arjun Joshi,FTE,Senior Director,Kamlesh Kumar,80,0,Green
+EMP0463,Priya,Bhatt,Priya Bhatt,FTE,Data Analyst,Lokesh Roy,100,0,Green
+EMP0464,Vedant,Srivastava,Vedant Srivastava,FTE,Software Engineer,Kiran Naidu,100,0,Green
+EMP0465,Neeti,Patel,Neeti Patel,FTE,Trainee Engineer,Kavya Jain,100,0,Green
+EMP0466,Vedant,Verma,Vedant Verma,FTE,Technical Lead,Kamlesh Bhatt,100,0,Green
+EMP0467,Aarav,Verma,Aarav Verma,FTE,Data Analyst,Nilesh Sharma,60,0,Amber
+EMP0468,Kabir,Rao,Kabir Rao,FTE,Engineering Manager,Suresh Bansal,60,0,Amber
+EMP0469,Ayaan,Singh,Ayaan Singh,FTE,Senior Manager,Sandesh Mehta,80,0,Green
+EMP0470,Seeta,Naidu,Seeta Naidu,FTE,Junior Software Engineer,Sushma Ghosh,60,0,Amber
+EMP0471,Rakesh,Banerjee,Rakesh Banerjee,FTE,Senior QA Engineer,Abhimanyu Goel,80,0,Green
+EMP0472,Priya,Chowdhury,Priya Chowdhury,FTE,Staff Engineer,Rekha Vyas,100,0,Green
+EMP0473,Yogesh,Jain,Yogesh Jain,FTE,Head of Product,Kamlesh Kumar,80,0,Green
+EMP0474,Vivaan,Parikh,Vivaan Parikh,FTE,Junior Analyst,Kabir Shukla,80,0,Green
+EMP0475,Nisha,Dubey,Nisha Dubey,FTE,Senior Manager,Mamta Banerjee,100,0,Green
+EMP0476,Nilesh,Gupta,Nilesh Gupta,FTE,Senior Software Engineer,Vedant Kumar,100,0,Green
+EMP0477,Aditya,Das,Aditya Das,FTE,Senior Staff Engineer,Kamlesh Kumar,80,0,Green
+EMP0478,Sandesh,Bansal,Sandesh Bansal,FTE,Senior Staff Engineer,Kamlesh Kumar,80,0,Green
+EMP0479,Shaurya,Thakkar,Shaurya Thakkar,FTE,Senior Manager,Kamlesh Kumar,80,0,Green
+EMP0480,Mahesh,Sen,Mahesh Sen,FTE,Junior Analyst,Lokesh Rao,80,0,Green
+EMP0481,Vihaan,Banerjee,Vihaan Banerjee,FTE,Junior Analyst,Seeta Roy,100,0,Green
+EMP0482,Ramesh,Vyas,Ramesh Vyas,FTE,Senior Manager,Ramesh Sharma,100,0,Green
+EMP0483,Fatima,Dubey,Fatima Dubey,FTE,Senior Analyst,Shaurya Goel,60,0,Amber
+EMP0484,Krishna,Mittal,Krishna Mittal,FTE,Software Engineer,Geeta Parikh,80,0,Green
+EMP0485,Rakesh,Vyas,Rakesh Vyas,FTE,Senior Analyst,Suresh Goel,60,0,Amber
+EMP0486,Anika,Joshi,Anika Joshi,FTE,Junior Software Engineer,Sunita Reddy,100,0,Green
+EMP0487,Pihu,Agarwal,Pihu Agarwal,FTE,Business Analyst,Sai Pandey,100,0,Green
+EMP0488,Shlok,Mukherjee,Shlok Mukherjee,FTE,Technical Lead,Atharv Yadav,60,0,Amber
+EMP0489,Pihu,Bansal,Pihu Bansal,FTE,Software Engineer,Kamlesh Kumar,100,0,Green
+EMP0490,Yuvraj,Agarwal,Yuvraj Agarwal,FTE,Trainee Engineer,Siya Tripathi,100,0,Green
+EMP0491,Kavita,Verma,Kavita Verma,FTE,Senior QA Engineer,Kamlesh Kumar,80,0,Green
+EMP0492,Rudra,Das,Rudra Das,FTE,Senior Staff Engineer,Kamlesh Kumar,80,0,Green
+EMP0493,Abhimanyu,Banerjee,Abhimanyu Banerjee,FTE,Head of Product,Kamlesh Kumar,60,0,Amber
+EMP0494,Vikram,Mukherjee,Vikram Mukherjee,FTE,Junior Analyst,Prisha Jain,100,0,Green
+EMP0495,Ramesh,Bansal,Ramesh Bansal,FTE,Software Engineer,Ganesh Bansal,80,0,Green
+EMP0496,Kavya,Srivastava,Kavya Srivastava,FTE,Trainee Engineer,Pihu Shah,60,0,Amber
+EMP0497,Geeta,Desai,Geeta Desai,FTE,Senior Analyst,Vihaan Joshi,100,0,Green
+EMP0498,Myra,Roy,Myra Roy,FTE,Software Engineer,Reyansh Jain,80,0,Green
+EMP0499,Vivaan,Pandey,Vivaan Pandey,FTE,Senior Principal Engineer,Kamlesh Kumar,100,0,Green
+EMP0500,Nisha,Rao,Nisha Rao,FTE,Senior Software Engineer,Kamlesh Tiwari,100,0,Green

@@ -1,0 +1,153 @@
+People Analytics Local App - Technical Context
+
+Overview
+
+This is a local-first, AI-powered People Analytics dashboard designed for Deutsche Telekom Digital Labs. The tool provides HR leaders and managers with real-time insights and summaries about their teams using data unified from platforms like Darwinbox, TurboHire, Amber, GT Portal, and more.
+
+Tech Stack
+
+Frontend: React with Tailwind CSS
+
+Backend: Node.js with Express
+
+Database: SQLite (local development)
+
+AI Assistant: Local LLM (e.g., LLaMA)
+
+Features
+
+Access Control
+
+Dropdown to toggle between "Leader" and "Manager" views
+
+Homepage (Summary View)
+
+Total Employees
+
+Gender Ratio
+
+Average Time in Company
+
+Average Experience
+
+Age Mix (Pie Chart)
+
+Seniority Mix (Pie Chart)
+
+Skillset Mapping (Word Cloud)
+
+Office Presence (WFH/WFO distribution)
+
+Open Positions under the Leader
+
+Positions in Interview Pipeline
+
+Offers Rolled Out
+
+Team-wide Attrition Risk (average)
+
+Concerns Requiring Immediate Attention
+
+Today’s Pulse strip showing:
+
+Number of high-risk attrition employees
+
+Any burnout or disengagement signals
+
+Any employees without current OKRs
+
+Pending approvals or escalations
+
+Team View
+
+Org Chart Visualization (My Reportees → Their Reportees)
+
+Clickable Employee Cards
+
+Basic Info: Name, ID, Gender, Location, Hometown
+
+Education & Career: College, Graduation Year, Previous Company, Designation, Joining Date, Salary Band
+
+Performance: Value Stream, OKRs, Ratings, eNPS
+
+Leave Info: Balance, Calendar, Usage Trend
+
+Skills: Skill Set, Learning Status, Aspirations
+
+Risk: Attrition, Burnout, Performance
+
+Filters by Role (Dev, Analyst, TPM, etc.)
+
+Rule-based Team Change Recommendations (e.g., level ratio, role balance)
+
+Hiring
+
+View Open Positions with Filters:
+
+Hiring Manager
+
+Designation, Level, HR Partner
+
+Status, Age of Opening
+
+Internal Job Postings (IJP) View
+
+Team Experience
+
+Employee NPS and Historical Trends
+
+Engagement % and Top Reported Issues
+
+Attrition % and Average Tenure
+
+Risk Breakdown:
+
+Employees at Attrition or Performance Risk
+
+Low Engagement or Satisfaction Signals
+
+9-box Framework: Performance vs Potential vs Aspiration
+
+Learning & Upskilling
+
+Placeholder for future features (skill development, course completion, recommendations)
+
+Local Development Instructions
+
+Database Setup
+
+Use the provided data model to create a SQLite database locally.
+
+Populate with sample or real anonymized data from connected HR platforms.
+
+API Layer
+
+Build RESTful APIs in Node.js/Express to serve frontend components.
+
+Ensure endpoints support filtering, pagination, and aggregation where needed.
+
+AI Chatbot Assistant
+
+Integrate a local LLM (recommended: LLaMA or similar) to power the chatbot.
+
+The chatbot should:
+
+Accept user queries in natural language
+
+Access the local SQLite database and API endpoints
+
+Perform ad hoc analysis (e.g., "Show all high-risk L3 employees")
+
+Read and summarize the current UI page (DOM parsing or component state access)
+
+Act as a co-pilot for HR and People Managers
+
+NLP Search
+
+Implement a smart search bar that interprets natural language and routes to the appropriate data view or API call (e.g., "Show me attrition trends for my team")
+
+Architecture Consideration
+
+Design the backend and data access layers with plug-and-play connectors to easily support more HR tools
+
+Apply Role-Based Access Control (RBAC) for different leadership levels
