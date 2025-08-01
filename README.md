@@ -1,117 +1,273 @@
 # HR OneMind - AI-Powered People Analytics Platform
 
-An intelligent interface for HR leaders and managers to view people data, assess team health, and act on recommendations. Built for Deutsche Telekom Digital Labs.
+A comprehensive AI-powered people analytics web application built for Deutsche Telekom Digital Labs, providing managers and HR leaders with intelligent insights into team health, employee engagement, and actionable recommendations.
 
-## Features
+## 🚀 Features
 
-- **Access Control**: Toggle between Leader and Manager views
-- **Smart Dashboard**: Real-time alerts and insights
-- **Team Analytics**: Comprehensive team composition and performance metrics
-- **Hiring Management**: Track open positions and recruitment pipeline
-- **Experience Monitoring**: Team satisfaction and engagement insights
-- **AI-Powered Recommendations**: Actionable suggestions for leaders
+### 📊 Dashboard Analytics
+- **Real-time Metrics**: Team composition, engagement scores, performance data
+- **Interactive Charts**: Age distribution and seniority mix pie charts using real data
+- **Role-based Views**: Different dashboards for HR, Leaders, and Managers
+- **HRBP Feedback Integration**: Visual indicators and recommendations from Amber data
 
-## Tech Stack
+### 👥 Employee Management
+- **Team Hierarchy**: Interactive organizational chart with drill-down capabilities
+- **Employee Profiles**: Comprehensive details including basic info, career history, performance, skills, and risk assessment
+- **Search & Filters**: Advanced filtering by level, HRBP status, and team
+- **HRBP Feedback**: Color-coded status indicators (Green/Amber/Red) with actionable insights
 
-- **Frontend**:
-  - React with TypeScript
-  - Tailwind CSS for styling
-  - Headless UI for accessible components
-  - React Query for data fetching
-  - Recharts & Nivo for data visualization
+### 💼 Hiring Management
+- **Requisition Tracking**: Complete hiring pipeline management
+- **Statistics Dashboard**: Real-time hiring metrics and KPIs
+- **Offer Management**: Track offers made, accepted, and pending
+- **Advanced Filtering**: Filter by department, status, level, and time range
 
-- **Backend**:
-  - Node.js with Express
-  - TypeScript
-  - MongoDB for data storage
-  - JWT for authentication
+### 🎯 Key Capabilities
+- **Role-Based Access Control**: HR, Leader, and Manager specific views
+- **Department Switching**: Leaders can toggle between OneAI, Commerce, and OneMind teams
+- **Real Data Integration**: Uses actual CSV data loaded into SQLite database
+- **Responsive Design**: Modern UI built with Tailwind CSS
+- **Interactive Visualizations**: Charts and graphs using Recharts library
 
-## Getting Started
+## 🛠 Tech Stack
+
+### Frontend
+- **React 18** with TypeScript
+- **Vite** for build tooling
+- **Tailwind CSS** for styling
+- **Headless UI** for accessible components
+- **React Query** for data fetching and caching
+- **React Router** for navigation
+- **Recharts** for data visualization
+
+### Backend
+- **Node.js** with Express
+- **TypeScript** for type safety
+- **SQLite** database with CSV data loading
+- **csv-parse** for data processing
+- **CORS** enabled for frontend integration
+
+### Database
+- **SQLite** with structured schema
+- **CSV data loading** from actual HR datasets
+- **Foreign key relationships** for data integrity
+- **Metadata documentation** with table descriptions
+
+## 📁 Project Structure
+
+```
+HR_OneMind/
+├── frontend/                 # React frontend application
+│   ├── src/
+│   │   ├── components/      # Reusable UI components
+│   │   ├── pages/          # Application pages
+│   │   ├── contexts/       # React contexts (Auth)
+│   │   ├── services/       # API services
+│   │   └── assets/         # Static assets
+│   ├── package.json
+│   └── tailwind.config.js
+├── backend/                  # Node.js backend API
+│   ├── src/
+│   │   ├── controllers/    # Route controllers
+│   │   ├── routes/         # API routes
+│   │   ├── database/       # Database setup and migration
+│   │   ├── middleware/     # Express middleware
+│   │   └── services/       # Business logic
+│   ├── package.json
+│   └── tsconfig.json
+├── data/                    # CSV data files and metadata
+│   ├── Master Data UPDATED.csv
+│   ├── Amber data.csv
+│   ├── Performance & OKR UPDATED.csv
+│   └── TABLE_METADATA.md
+├── package.json            # Root package.json with workspaces
+└── README.md
+```
+
+## 🚀 Quick Start
 
 ### Prerequisites
-
-- Node.js 18+
-- MongoDB
+- Node.js (v16 or higher)
 - npm or yarn
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository**
    ```bash
-   git clone [repository-url]
-   cd hr-onemind
+   git clone https://github.com/adityaditya1994/hackfest.git
+   cd hackfest
    ```
 
-2. Install dependencies:
+2. **Install dependencies**
    ```bash
-   npm install:all
+   npm run install:all
    ```
 
-3. Set up environment variables:
+3. **Setup database**
    ```bash
-   # Backend (.env)
-   PORT=5000
-   MONGODB_URI=mongodb://localhost:27017/hr-onemind
-   JWT_SECRET=your-secret-key
-   NODE_ENV=development
-
-   # External API Keys
-   DARWINBOX_API_KEY=
-   TURBOHIRE_API_KEY=
-   AMBER_API_KEY=
-   GT_PORTAL_API_KEY=
+   cd backend
+   npm run setup-db
    ```
 
-4. Start the development servers:
+4. **Start the application**
    ```bash
+   cd ..
    npm start
    ```
 
 The application will be available at:
 - Frontend: http://localhost:5173
-- Backend: http://localhost:5000
+- Backend API: http://localhost:5000
 
-## Project Structure
+### Development Commands
 
+```bash
+# Install all dependencies
+npm run install:all
+
+# Start both frontend and backend
+npm start
+
+# Start frontend only
+npm run start:frontend
+
+# Start backend only
+npm run start:backend
+
+# Build both applications
+npm run build
+
+# Setup database (backend)
+cd backend && npm run setup-db
 ```
-hr-onemind/
-├── frontend/                # React frontend application
-│   ├── src/
-│   │   ├── components/     # Reusable UI components
-│   │   ├── pages/         # Page components
-│   │   ├── hooks/         # Custom React hooks
-│   │   ├── services/      # API services
-│   │   └── utils/         # Helper functions
-│   └── public/            # Static assets
-│
-└── backend/               # Node.js backend application
-    ├── src/
-    │   ├── controllers/   # Request handlers
-    │   ├── models/        # Database models
-    │   ├── routes/        # API routes
-    │   ├── middleware/    # Custom middleware
-    │   └── utils/         # Helper functions
-    └── tests/            # Backend tests
-```
 
-## API Integration
+## 📊 Data Sources
 
-The platform integrates with multiple HR systems:
-- Darwinbox
-- TurboHire
-- Amber
-- GT Portal
+The application uses real CSV data from multiple HR systems:
 
-API documentation and integration details will be provided separately.
+- **Master Data**: Employee information, demographics, roles
+- **Amber Data**: Engagement scores and HRBP feedback
+- **Performance Data**: Performance ratings and OKRs
+- **Hiring Data**: Job requisitions and offers
 
-## Contributing
+All data is loaded into a structured SQLite database with proper relationships and metadata documentation.
+
+## 🔐 User Roles
+
+### HR View
+- Company-wide analytics (474 employees)
+- All departments and teams visible
+- Full hiring and performance data access
+
+### Leader View
+- Department-level data (OneAI: 165, Commerce: 160, OneMind: 149)
+- Team composition and engagement metrics
+- Department-specific hiring pipeline
+
+### Manager View
+- Team-specific data for direct and indirect reports
+- Individual employee performance tracking
+- Team health and risk indicators
+
+## 📈 Key Metrics
+
+### Team Composition
+- Total employees by role/department
+- Gender distribution
+- Average experience and tenure
+- Age and seniority mix with interactive charts
+
+### Performance & Engagement
+- HRBP feedback status (Green/Amber/Red)
+- Engagement scores from Amber data
+- Performance ratings and OKR tracking
+- Risk assessment and recommendations
+
+### Hiring Pipeline
+- Open requisitions and pipeline status
+- Offer statistics and acceptance rates
+- Time-to-hire metrics
+- Department-wise hiring trends
+
+## 🔧 API Endpoints
+
+### Dashboard
+- `GET /api/dashboard/metrics` - Main dashboard metrics
+- `GET /api/dashboard/age-mix` - Age distribution data
+- `GET /api/dashboard/seniority-mix` - Seniority distribution data
+
+### Employees
+- `GET /api/employees` - All employees list
+- `GET /api/employees/:id` - Employee details
+- `GET /api/employees/level/:level` - Employees by level
+- `GET /api/employees/:id/hierarchy` - Team hierarchy
+
+### Hiring
+- `GET /api/hiring/stats` - Hiring statistics
+- `GET /api/hiring/requisitions` - Job requisitions
+- `GET /api/hiring/offers` - Offer management
+
+## 🎨 UI Components
+
+### Charts & Visualizations
+- **Pie Charts**: Age and seniority distribution with Recharts
+- **Metric Cards**: Key performance indicators
+- **Status Badges**: Color-coded HRBP feedback
+- **Progress Indicators**: Hiring pipeline status
+
+### Interactive Elements
+- **Employee Cards**: Clickable with detailed modals
+- **Filters**: Advanced search and filtering options
+- **Role Switcher**: Dynamic view changes
+- **Department Selector**: Team-specific data views
+
+## 🔄 Data Flow
+
+1. **CSV Data Loading**: Automated import from data folder
+2. **Database Normalization**: Structured SQLite schema
+3. **API Layer**: Express routes with TypeScript
+4. **Frontend Caching**: React Query for performance
+5. **Real-time Updates**: Dynamic filtering and role-based views
+
+## 🚦 Getting Started Guide
+
+### For HR Users
+1. Login with HR role
+2. View company-wide dashboard
+3. Access all employee data and hiring metrics
+4. Switch between different team views
+
+### For Leaders
+1. Select Leader role from profile menu
+2. Choose department (OneAI/Commerce/OneMind)
+3. View department-specific analytics
+4. Review team composition and performance
+
+### For Managers
+1. Use Manager role for team-specific data
+2. Access direct reports and hierarchy
+3. Review individual employee profiles
+4. Monitor team health indicators
+
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## License
+## 📄 License
 
-This project is proprietary and confidential. Unauthorized copying or distribution is prohibited. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Deutsche Telekom Digital Labs for the project requirements
+- React and Node.js communities for excellent tooling
+- Recharts for beautiful data visualizations
+- Tailwind CSS for rapid UI development
+
+---
+
+**Built with ❤️ for Deutsche Telekom Digital Labs** 
