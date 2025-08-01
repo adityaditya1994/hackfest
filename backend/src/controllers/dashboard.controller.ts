@@ -72,7 +72,7 @@ export const getDashboardMetrics = async (req: Request, res: Response) => {
     if (role === 'leader' && empId) {
       // Leader view: Show all employees under this leader (including indirect reports)
       const leader = await runQuery<{name: string}[]>(`
-        SELECT name FROM employees WHERE manager_id = ?
+        SELECT name FROM employees WHERE emp_id = ? AND status = 'Active'
       `, [empId]);
 
       if (leader.length > 0) {
@@ -89,16 +89,21 @@ export const getDashboardMetrics = async (req: Request, res: Response) => {
     } else if (role === 'manager' && empId) {
       // Manager view: Show only their direct reports
       const manager = await runQuery<{name: string}[]>(`
-        SELECT name FROM employees WHERE manager_id = ?
+        SELECT name FROM employees WHERE emp_id = ? AND status = 'Active'
       `, [empId]);
 
       if (manager.length > 0) {
-        employeeFilter += ` AND e.manager_name = '${manager[0].name}'`;
-        
         const directReports = await runQuery<{name: string}[]>(`
           SELECT name FROM employees WHERE manager_name = ? AND status = 'Active'
         `, [manager[0].name]);
         employeeList = directReports.map(emp => emp.name);
+        
+        if (directReports.length > 0) {
+          const placeholders = directReports.map(() => '?').join(',');
+          employeeFilter += ` AND e.name IN (${placeholders})`;
+        } else {
+          employeeFilter += ` AND 1=0`; // No direct reports
+        }
       }
     } else if (role === 'leader' && department) {
       // Leader view by department: Show department-level data
@@ -233,7 +238,7 @@ export const getAgeMixData = async (req: Request, res: Response) => {
     if (role === 'leader' && empId) {
       // Leader view: Show all employees under this leader (including indirect reports)
       const leader = await runQuery<{name: string}[]>(`
-        SELECT name FROM employees WHERE manager_id = ?
+        SELECT name FROM employees WHERE emp_id = ? AND status = 'Active'
       `, [empId]);
 
       if (leader.length > 0) {
@@ -250,11 +255,21 @@ export const getAgeMixData = async (req: Request, res: Response) => {
     } else if (role === 'manager' && empId) {
       // Manager view: Show only their direct reports
       const manager = await runQuery<{name: string}[]>(`
-        SELECT name FROM employees WHERE manager_id = ?
+        SELECT name FROM employees WHERE emp_id = ? AND status = 'Active'
       `, [empId]);
 
       if (manager.length > 0) {
-        employeeFilter += ` AND e.manager_name = '${manager[0].name}'`;
+        const directReports = await runQuery<{name: string}[]>(`
+          SELECT name FROM employees WHERE manager_name = ? AND status = 'Active'
+        `, [manager[0].name]);
+        employeeList = directReports.map(emp => emp.name);
+        
+        if (directReports.length > 0) {
+          const placeholders = directReports.map(() => '?').join(',');
+          employeeFilter += ` AND e.name IN (${placeholders})`;
+        } else {
+          employeeFilter += ` AND 1=0`; // No direct reports
+        }
       }
     } else if (role === 'leader' && department) {
       // Leader view by department: Show department-level data
@@ -300,7 +315,7 @@ export const getSeniorityMixData = async (req: Request, res: Response) => {
     if (role === 'leader' && empId) {
       // Leader view: Show all employees under this leader (including indirect reports)
       const leader = await runQuery<{name: string}[]>(`
-        SELECT name FROM employees WHERE manager_id = ?
+        SELECT name FROM employees WHERE emp_id = ? AND status = 'Active'
       `, [empId]);
 
       if (leader.length > 0) {
@@ -317,11 +332,21 @@ export const getSeniorityMixData = async (req: Request, res: Response) => {
     } else if (role === 'manager' && empId) {
       // Manager view: Show only their direct reports
       const manager = await runQuery<{name: string}[]>(`
-        SELECT name FROM employees WHERE manager_id = ?
+        SELECT name FROM employees WHERE emp_id = ? AND status = 'Active'
       `, [empId]);
 
       if (manager.length > 0) {
-        employeeFilter += ` AND e.manager_name = '${manager[0].name}'`;
+        const directReports = await runQuery<{name: string}[]>(`
+          SELECT name FROM employees WHERE manager_name = ? AND status = 'Active'
+        `, [manager[0].name]);
+        employeeList = directReports.map(emp => emp.name);
+        
+        if (directReports.length > 0) {
+          const placeholders = directReports.map(() => '?').join(',');
+          employeeFilter += ` AND e.name IN (${placeholders})`;
+        } else {
+          employeeFilter += ` AND 1=0`; // No direct reports
+        }
       }
     } else if (role === 'leader' && department) {
       // Leader view by department: Show department-level data

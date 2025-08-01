@@ -6,6 +6,8 @@ import Dashboard from './pages/Dashboard';
 import Team from './pages/Team';
 import Hiring from './pages/Hiring';
 import Experience from './pages/Experience';
+import Help from './pages/Help';
+import Settings from './pages/Settings';
 
 const queryClient = new QueryClient();
 
@@ -20,6 +22,8 @@ function App() {
               <Route path="/team" element={<Team />} />
               <Route path="/hiring" element={<Hiring />} />
               <Route path="/experience" element={<Experience />} />
+              <Route path="/help" element={<Help />} />
+              <Route path="/settings" element={<Settings />} />
             </Route>
           </Routes>
         </Router>

@@ -1,273 +1,312 @@
-# HR OneMind - AI-Powered People Analytics Platform
+# 🏢 HR OneMind Analytics Platform
 
-A comprehensive AI-powered people analytics web application built for Deutsche Telekom Digital Labs, providing managers and HR leaders with intelligent insights into team health, employee engagement, and actionable recommendations.
+A comprehensive HR Analytics platform built with React, Node.js, and AI-powered chatbot capabilities. This platform provides real-time insights into employee data, performance metrics, organizational structure, and hiring analytics.
 
-## 🚀 Features
+## ✨ Features
 
-### 📊 Dashboard Analytics
-- **Real-time Metrics**: Team composition, engagement scores, performance data
-- **Interactive Charts**: Age distribution and seniority mix pie charts using real data
-- **Role-based Views**: Different dashboards for HR, Leaders, and Managers
-- **HRBP Feedback Integration**: Visual indicators and recommendations from Amber data
+### 📊 **Dashboard Analytics**
+- Real-time employee metrics and KPIs
+- Gender ratio and demographic analytics
+- Age distribution and seniority mix visualization
+- Performance analytics with interactive charts
+- Risk signals and attrition predictions
 
-### 👥 Employee Management
-- **Team Hierarchy**: Interactive organizational chart with drill-down capabilities
-- **Employee Profiles**: Comprehensive details including basic info, career history, performance, skills, and risk assessment
-- **Search & Filters**: Advanced filtering by level, HRBP status, and team
-- **HRBP Feedback**: Color-coded status indicators (Green/Amber/Red) with actionable insights
+### 👥 **Team Management**
+- Interactive organizational chart with hierarchical tree view
+- Employee detail modals with comprehensive data
+- Level-based organization structure (L1-L5)
+- Manager-employee relationship mapping
+- Skills and aspirations tracking
 
-### 💼 Hiring Management
-- **Requisition Tracking**: Complete hiring pipeline management
-- **Statistics Dashboard**: Real-time hiring metrics and KPIs
-- **Offer Management**: Track offers made, accepted, and pending
-- **Advanced Filtering**: Filter by department, status, level, and time range
+### 🔍 **Hiring & Recruitment**
+- Job requisitions and offer management
+- Hiring pipeline visualization
+- Candidate tracking and status updates
 
-### 🎯 Key Capabilities
-- **Role-Based Access Control**: HR, Leader, and Manager specific views
-- **Department Switching**: Leaders can toggle between OneAI, Commerce, and OneMind teams
-- **Real Data Integration**: Uses actual CSV data loaded into SQLite database
-- **Responsive Design**: Modern UI built with Tailwind CSS
-- **Interactive Visualizations**: Charts and graphs using Recharts library
+### 📈 **Employee Experience**
+- Engagement metrics and satisfaction scores
+- NPS tracking and trend analysis
+- Employee feedback and sentiment analysis
 
-## 🛠 Tech Stack
+### 🤖 **AI-Powered Chatbot**
+- Natural language queries about HR data
+- Real-time data analysis via Ollama + CodeLlama
+- Smart SQL generation from natural language
+- WebSocket-based real-time communication
 
-### Frontend
+## 🛠️ Tech Stack
+
+### **Frontend**
 - **React 18** with TypeScript
-- **Vite** for build tooling
+- **Vite** for fast development and building
 - **Tailwind CSS** for styling
-- **Headless UI** for accessible components
-- **React Query** for data fetching and caching
 - **React Router** for navigation
+- **TanStack React Query** for data fetching
 - **Recharts** for data visualization
+- **Headless UI** for accessible components
 
-### Backend
-- **Node.js** with Express
-- **TypeScript** for type safety
-- **SQLite** database with CSV data loading
-- **csv-parse** for data processing
-- **CORS** enabled for frontend integration
+### **Backend**
+- **Node.js** with Express and TypeScript
+- **SQLite** database for data storage
+- **CSV parsing** for data import
+- **JWT** authentication
+- **CORS** enabled for cross-origin requests
 
-### Database
-- **SQLite** with structured schema
-- **CSV data loading** from actual HR datasets
-- **Foreign key relationships** for data integrity
-- **Metadata documentation** with table descriptions
+### **AI Chatbot**
+- **Ollama** with CodeLlama 7B model
+- **WebSocket** for real-time communication
+- **Natural Language Processing** for query understanding
+- **SQL generation** from natural language
+
+## 📋 Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **Node.js** (v18 or higher) - [Download here](https://nodejs.org/)
+- **npm** (comes with Node.js)
+- **Ollama** - [Download here](https://ollama.ai/)
+- **Git** - [Download here](https://git-scm.com/)
+
+## 🚀 Quick Start
+
+### 1. Clone the Repository
+```bash
+git clone <repository-url>
+cd hackfest
+```
+
+### 2. Install Dependencies
+```bash
+# Install all dependencies (root, frontend, backend)
+npm run install:all
+```
+
+### 3. Setup Database
+```bash
+# Initialize and populate the database with sample HR data
+cd backend
+npm run setup-db
+cd ..
+```
+
+### 4. Setup AI Chatbot
+```bash
+# Install Ollama (if not already installed)
+# Visit https://ollama.ai/ and follow installation instructions
+
+# Pull the CodeLlama model
+ollama pull codellama:7b
+
+# Install chatbot dependencies
+cd chatbot/backend
+npm install
+cd ../..
+
+# Make scripts executable
+chmod +x chatbot/setup.sh chatbot/start.sh
+```
+
+### 5. Start the Application
+```bash
+# Start frontend and backend together
+npm start
+```
+
+### 6. Start the AI Chatbot (Optional)
+```bash
+# In a separate terminal
+./chatbot/start.sh
+```
+
+## 🌐 Application URLs
+
+- **Frontend Dashboard**: http://localhost:5173
+- **Backend API**: http://localhost:5000
+- **Chatbot API**: http://localhost:5001
+- **Chatbot WebSocket**: ws://localhost:5001
 
 ## 📁 Project Structure
 
 ```
-HR_OneMind/
+hackfest/
 ├── frontend/                 # React frontend application
 │   ├── src/
 │   │   ├── components/      # Reusable UI components
-│   │   ├── pages/          # Application pages
-│   │   ├── contexts/       # React contexts (Auth)
+│   │   ├── pages/          # Page components
 │   │   ├── services/       # API services
-│   │   └── assets/         # Static assets
-│   ├── package.json
-│   └── tailwind.config.js
-├── backend/                  # Node.js backend API
+│   │   ├── contexts/       # React contexts
+│   │   └── utils/          # Utility functions
+│   ├── public/             # Static assets
+│   └── package.json
+├── backend/                 # Node.js backend API
 │   ├── src/
 │   │   ├── controllers/    # Route controllers
 │   │   ├── routes/         # API routes
-│   │   ├── database/       # Database setup and migration
-│   │   ├── middleware/     # Express middleware
-│   │   └── services/       # Business logic
-│   ├── package.json
-│   └── tsconfig.json
-├── data/                    # CSV data files and metadata
-│   ├── Master Data UPDATED.csv
-│   ├── Amber data.csv
-│   ├── Performance & OKR UPDATED.csv
-│   └── TABLE_METADATA.md
-├── package.json            # Root package.json with workspaces
-└── README.md
+│   │   ├── database/       # Database setup and queries
+│   │   ├── services/       # Business logic
+│   │   └── middleware/     # Express middleware
+│   └── package.json
+├── chatbot/                 # AI chatbot system
+│   ├── backend/            # Chatbot backend
+│   ├── frontend/           # Chatbot UI components
+│   └── integration/        # Integration examples
+├── data/                    # Sample HR data (CSV files)
+└── package.json            # Root package configuration
 ```
 
-## 🚀 Quick Start
+## 🎯 Usage Guide
 
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
+### **Dashboard Navigation**
+1. **Dashboard**: Overview of all HR metrics and KPIs
+2. **Team**: Organizational chart and employee management
+3. **Hiring**: Recruitment pipeline and job requisitions
+4. **Experience**: Employee engagement and satisfaction metrics
+5. **Help**: FAQ and support documentation
+6. **Settings**: User preferences and configuration
 
-### Installation
+### **Role-Based Views**
+The platform supports different views based on user roles:
+- **HR View**: Company-wide data and metrics
+- **Leader View**: Department/team-level insights
+- **Manager View**: Direct reports and team metrics
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/adityaditya1994/hackfest.git
-   cd hackfest
-   ```
+### **AI Chatbot Usage**
+Click the chatbot icon (💬) in the bottom-right corner and ask questions like:
+- "How many employees are in the OneMind team?"
+- "What's the gender ratio in our company?"
+- "How many L4 level employees do we have?"
+- "Show me employees with high engagement scores"
 
-2. **Install dependencies**
-   ```bash
-   npm run install:all
-   ```
+## 🛠️ Development
 
-3. **Setup database**
-   ```bash
-   cd backend
-   npm run setup-db
-   ```
-
-4. **Start the application**
-   ```bash
-   cd ..
-   npm start
-   ```
-
-The application will be available at:
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:5000
-
-### Development Commands
-
+### **Running in Development Mode**
 ```bash
-# Install all dependencies
-npm run install:all
-
-# Start both frontend and backend
-npm start
-
 # Start frontend only
 npm run start:frontend
 
-# Start backend only
+# Start backend only  
 npm run start:backend
 
-# Build both applications
-npm run build
-
-# Setup database (backend)
-cd backend && npm run setup-db
+# Start both together
+npm start
 ```
 
-## 📊 Data Sources
+### **Building for Production**
+```bash
+# Build both frontend and backend
+npm run build
+```
 
-The application uses real CSV data from multiple HR systems:
+### **Database Management**
+```bash
+# Reinitialize database
+cd backend
+npm run init-db
 
-- **Master Data**: Employee information, demographics, roles
-- **Amber Data**: Engagement scores and HRBP feedback
-- **Performance Data**: Performance ratings and OKRs
-- **Hiring Data**: Job requisitions and offers
+# Reload sample data
+npm run load-data
 
-All data is loaded into a structured SQLite database with proper relationships and metadata documentation.
+# Full database setup
+npm run setup-db
+```
 
-## 🔐 User Roles
+## 📊 Sample Data
 
-### HR View
-- Company-wide analytics (474 employees)
-- All departments and teams visible
-- Full hiring and performance data access
+The platform comes with comprehensive sample HR data including:
+- **474 employees** across different departments and levels
+- **Performance and OKR data** for goal tracking
+- **Engagement survey results** for satisfaction metrics
+- **Hiring requisitions and offers** for recruitment analytics
+- **Leave records** for attendance tracking
 
-### Leader View
-- Department-level data (OneAI: 165, Commerce: 160, OneMind: 149)
-- Team composition and engagement metrics
-- Department-specific hiring pipeline
+## 🐛 Troubleshooting
 
-### Manager View
-- Team-specific data for direct and indirect reports
-- Individual employee performance tracking
-- Team health and risk indicators
+### **Common Issues**
 
-## 📈 Key Metrics
+1. **Port Already in Use**
+   - Frontend (5173): Change port in `frontend/vite.config.ts`
+   - Backend (5000): Change port in `backend/src/server.ts`
+   - Chatbot (5001): Change port in `chatbot/backend/src/server.ts`
 
-### Team Composition
-- Total employees by role/department
-- Gender distribution
-- Average experience and tenure
-- Age and seniority mix with interactive charts
+2. **Database Issues**
+   ```bash
+   cd backend
+   rm hr_onemind.db
+   npm run setup-db
+   ```
 
-### Performance & Engagement
-- HRBP feedback status (Green/Amber/Red)
-- Engagement scores from Amber data
-- Performance ratings and OKR tracking
-- Risk assessment and recommendations
+3. **Ollama/Chatbot Issues**
+   - Ensure Ollama is running: `ollama list`
+   - Pull model again: `ollama pull codellama:7b`
+   - Check logs in chatbot terminal
 
-### Hiring Pipeline
-- Open requisitions and pipeline status
-- Offer statistics and acceptance rates
-- Time-to-hire metrics
-- Department-wise hiring trends
+4. **Dependencies Issues**
+   ```bash
+   # Clean install
+   rm -rf node_modules
+   rm package-lock.json
+   npm run install:all
+   ```
 
-## 🔧 API Endpoints
+### **Environment Variables**
+Create `.env` files if needed:
 
-### Dashboard
-- `GET /api/dashboard/metrics` - Main dashboard metrics
-- `GET /api/dashboard/age-mix` - Age distribution data
-- `GET /api/dashboard/seniority-mix` - Seniority distribution data
+**Backend (.env)**
+```env
+PORT=5000
+NODE_ENV=development
+DB_PATH=./hr_onemind.db
+```
 
-### Employees
-- `GET /api/employees` - All employees list
-- `GET /api/employees/:id` - Employee details
-- `GET /api/employees/level/:level` - Employees by level
-- `GET /api/employees/:id/hierarchy` - Team hierarchy
-
-### Hiring
-- `GET /api/hiring/stats` - Hiring statistics
-- `GET /api/hiring/requisitions` - Job requisitions
-- `GET /api/hiring/offers` - Offer management
-
-## 🎨 UI Components
-
-### Charts & Visualizations
-- **Pie Charts**: Age and seniority distribution with Recharts
-- **Metric Cards**: Key performance indicators
-- **Status Badges**: Color-coded HRBP feedback
-- **Progress Indicators**: Hiring pipeline status
-
-### Interactive Elements
-- **Employee Cards**: Clickable with detailed modals
-- **Filters**: Advanced search and filtering options
-- **Role Switcher**: Dynamic view changes
-- **Department Selector**: Team-specific data views
-
-## 🔄 Data Flow
-
-1. **CSV Data Loading**: Automated import from data folder
-2. **Database Normalization**: Structured SQLite schema
-3. **API Layer**: Express routes with TypeScript
-4. **Frontend Caching**: React Query for performance
-5. **Real-time Updates**: Dynamic filtering and role-based views
-
-## 🚦 Getting Started Guide
-
-### For HR Users
-1. Login with HR role
-2. View company-wide dashboard
-3. Access all employee data and hiring metrics
-4. Switch between different team views
-
-### For Leaders
-1. Select Leader role from profile menu
-2. Choose department (OneAI/Commerce/OneMind)
-3. View department-specific analytics
-4. Review team composition and performance
-
-### For Managers
-1. Use Manager role for team-specific data
-2. Access direct reports and hierarchy
-3. Review individual employee profiles
-4. Monitor team health indicators
+**Chatbot Backend (.env)**
+```env
+PORT=5001
+OLLAMA_BASE_URL=http://localhost:11434
+MODEL_NAME=codellama:7b
+```
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## 📄 API Documentation
+
+### **Backend API Endpoints**
+
+#### Dashboard
+- `GET /api/dashboard/metrics` - Get dashboard metrics
+- `GET /api/dashboard/age-mix` - Get age distribution data
+- `GET /api/dashboard/seniority-mix` - Get seniority distribution data
+
+#### Employees
+- `GET /api/employees` - Get all employees
+- `GET /api/employees/orgchart` - Get organizational chart data
+- `GET /api/employees/:empId/personal` - Get employee personal data
+
+#### Hiring
+- `GET /api/hiring/stats` - Get hiring statistics
+- `GET /api/hiring/requisitions` - Get job requisitions
+- `GET /api/hiring/offers` - Get job offers
+
+#### Chatbot
+- `POST /api/chat` - Send message to chatbot
+- `WebSocket ws://localhost:5001` - Real-time chat communication
+
+## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- Deutsche Telekom Digital Labs for the project requirements
-- React and Node.js communities for excellent tooling
-- Recharts for beautiful data visualizations
-- Tailwind CSS for rapid UI development
+- **Ollama** for providing the AI infrastructure
+- **CodeLlama** for the language model
+- **React** and **Node.js** communities for the excellent frameworks
+- **Tailwind CSS** for the utility-first CSS framework
 
 ---
 
-**Built with ❤️ for Deutsche Telekom Digital Labs** 
+For more detailed information or support, please refer to the [Help](http://localhost:5173/help) page or contact the development team. 

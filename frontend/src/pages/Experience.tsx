@@ -1,12 +1,13 @@
 import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import {
   ChartBarIcon,
   ExclamationTriangleIcon,
   HeartIcon,
-  ChevronUpIcon,
-  ChevronDownIcon,
 } from '@heroicons/react/24/outline';
 import type { ForwardRefExoticComponent, SVGProps, RefAttributes } from 'react';
+import { experienceService } from '../services/api';
+import { useAuth } from '../contexts/AuthContext';
 
 type IconType = ForwardRefExoticComponent<
   Omit<SVGProps<SVGSVGElement>, "ref"> & {
@@ -23,77 +24,13 @@ interface MetricCardProps {
   trendColor?: string;
 }
 
-// Placeholder data - replace with API calls
-const experienceMetrics = {
-  npsScore: 8.2,
-  npsTrend: '+0.5',
-  engagement: 87,
-  engagementTrend: '+2%',
-  attritionRate: 5.2,
-  averageTenure: '2.8 years',
-};
-
-const topIssues = [
-  { id: 1, issue: 'Work-life balance concerns in Team A', severity: 'high' },
-  { id: 2, issue: 'Limited growth opportunities in Design', severity: 'medium' },
-  { id: 3, issue: 'Tool access delays for new joiners', severity: 'low' },
-];
-
-const riskSegments = [
-  {
-    id: 1,
-    name: 'High Attrition Risk',
-    count: 5,
-    details: 'Multiple factors including compensation and growth',
-  },
-  {
-    id: 2,
-    name: 'Low Engagement',
-    count: 8,
-    details: 'Limited participation in team activities',
-  },
-  {
-    id: 3,
-    name: 'Performance Concerns',
-    count: 3,
-    details: 'Declining productivity trends',
-  },
-];
-
-const satisfactionInsights = [
-  {
-    category: 'Work Environment',
-    score: 4.2,
-    trend: 'up',
-    details: 'Positive feedback on remote work policy',
-  },
-  {
-    category: 'Career Growth',
-    score: 3.8,
-    trend: 'down',
-    details: 'Concerns about promotion clarity',
-  },
-  {
-    category: 'Team Collaboration',
-    score: 4.5,
-    trend: 'up',
-    details: 'Strong team bonding and support',
-  },
-];
-
 function MetricCard({
   title,
   value,
   trend,
   icon: Icon,
   trendColor = 'text-green-600',
-}: {
-  title: string;
-  value: string | number;
-  trend?: string;
-  icon: any;
-  trendColor?: string;
-}) {
+}: MetricCardProps) {
   return (
     <div className="bg-white rounded-lg shadow p-6">
       <div className="flex items-center justify-between">
@@ -107,16 +44,7 @@ function MetricCard({
       </div>
       {trend && (
         <div className="mt-4 flex items-center">
-          {trend.startsWith('+') ? (
-            <ChevronUpIcon className="h-4 w-4 mr-1 text-green-600" />
-          ) : (
-            <ChevronDownIcon className="h-4 w-4 mr-1 text-red-600" />
-          )}
-          <span
-            className={`text-sm ${
-              trend.startsWith('+') ? 'text-green-600' : 'text-red-600'
-            }`}
-          >
+          <span className={`text-sm ${trend.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>
             {trend}
           </span>
         </div>
@@ -126,17 +54,93 @@ function MetricCard({
 }
 
 export default function Experience() {
+  const { user } = useAuth();
+  const [expandedSegment, setExpandedSegment] = useState<number | null>(null);
+  const [expandedIssue, setExpandedIssue] = useState<number | null>(null);
+
+  // Fetch engagement metrics
+  const { data: apiMetrics, isLoading: metricsLoading } = useQuery({
+    queryKey: ['experienceMetrics', user?.role, user?.department, user?.empId],
+    queryFn: () => {
+      if (user?.role === 'leader' || user?.role === 'manager') {
+        return experienceService.getEngagementMetrics(user.role, user.department, user.empId);
+      }
+      return experienceService.getEngagementMetrics(user?.role, user?.department);
+    },
+    enabled: !!user,
+  });
+
+  // Default values for when data is loading
+  const defaultMetrics = {
+    npsScore: 8.2,
+    npsTrend: '+0.5',
+    engagement: 87,
+    engagementTrend: '+2%',
+    attritionRate: 5.2,
+    averageTenure: '2.8 years',
+  };
+
+  const experienceMetrics = apiMetrics || defaultMetrics;
+
+  if (metricsLoading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="text-lg">Loading experience data...</div>
+      </div>
+    );
+  }
+
+  // Placeholder data for now
+  const topIssues = [
+    { id: 1, issue: 'Work-life balance concerns in Team A', severity: 'high' },
+    { id: 2, issue: 'Limited growth opportunities in Design', severity: 'medium' },
+    { id: 3, issue: 'Tool access delays for new joiners', severity: 'low' },
+  ];
+
+  const riskSegments = [
+    {
+      id: 1,
+      name: 'High Attrition Risk',
+      count: 5,
+      details: 'Multiple factors including compensation and growth',
+    },
+    {
+      id: 2,
+      name: 'Moderate Engagement Issues',
+      count: 12,
+      details: 'Work-life balance and development concerns',
+    },
+    {
+      id: 3,
+      name: 'New Joiner Support',
+      count: 8,
+      details: 'Onboarding and integration challenges',
+    },
+  ];
+
+  const getSeverityColor = (severity: string) => {
+    switch (severity) {
+      case 'high': return 'bg-red-100 text-red-800';
+      case 'medium': return 'bg-yellow-100 text-yellow-800';
+      case 'low': return 'bg-green-100 text-green-800';
+      default: return 'bg-gray-100 text-gray-800';
+    }
+  };
+
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold text-gray-900">Team Experience</h1>
-        <p className="mt-2 text-sm text-gray-700">
-          Monitor team satisfaction and identify areas for improvement
-        </p>
+      {/* Header */}
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-2xl font-semibold text-gray-900">Employee Experience</h1>
+          <p className="mt-2 text-sm text-gray-700">
+            Monitor employee satisfaction, engagement, and experience metrics
+          </p>
+        </div>
       </div>
 
-      {/* Summary Metrics */}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Key Metrics */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <MetricCard
           title="NPS Score"
           value={experienceMetrics.npsScore}
@@ -162,117 +166,79 @@ export default function Experience() {
         />
       </div>
 
-      {/* Top Issues */}
-      <div className="bg-white rounded-lg shadow">
-        <div className="p-6">
-          <h2 className="text-lg font-medium text-gray-900">Top Reported Issues</h2>
-          <div className="mt-4 space-y-4">
-            {topIssues.map((issue) => (
-              <div
-                key={issue.id}
-                className={`
-                  flex items-center justify-between p-4 rounded-lg
-                  ${
-                    issue.severity === 'high'
-                      ? 'bg-red-50'
-                      : issue.severity === 'medium'
-                      ? 'bg-yellow-50'
-                      : 'bg-blue-50'
-                  }
-                `}
-              >
-                <span
-                  className={`
-                    text-sm font-medium
-                    ${
-                      issue.severity === 'high'
-                        ? 'text-red-800'
-                        : issue.severity === 'medium'
-                        ? 'text-yellow-800'
-                        : 'text-blue-800'
-                    }
-                  `}
-                >
-                  {issue.issue}
-                </span>
-                <span
-                  className={`
-                    text-xs font-medium px-2.5 py-0.5 rounded-full
-                    ${
-                      issue.severity === 'high'
-                        ? 'bg-red-100 text-red-800'
-                        : issue.severity === 'medium'
-                        ? 'bg-yellow-100 text-yellow-800'
-                        : 'bg-blue-100 text-blue-800'
-                    }
-                  `}
-                >
-                  {issue.severity}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Risk Segments and Satisfaction Insights */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        {/* Risk Segments */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Top Issues */}
         <div className="bg-white rounded-lg shadow">
-          <div className="p-6">
-            <h2 className="text-lg font-medium text-gray-900">Risk Segments</h2>
-            <div className="mt-4 space-y-4">
-              {riskSegments.map((segment) => (
-                <div key={segment.id} className="border-b border-gray-200 pb-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="text-sm font-medium text-gray-900">
-                        {segment.name}
-                      </h3>
-                      <p className="mt-1 text-sm text-gray-500">{segment.details}</p>
+          <div className="px-6 py-4 border-b border-gray-200">
+            <h3 className="text-lg font-medium text-gray-900">Top Issues</h3>
+          </div>
+          <div className="px-6 py-4">
+            <div className="space-y-4">
+              {topIssues.map((issue) => (
+                <div key={issue.id} className="border rounded-lg p-4">
+                  <div
+                    className="flex items-center justify-between cursor-pointer"
+                    onClick={() => setExpandedIssue(expandedIssue === issue.id ? null : issue.id)}
+                  >
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <p className="text-sm font-medium text-gray-900">{issue.issue}</p>
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getSeverityColor(issue.severity)}`}>
+                          {issue.severity}
+                        </span>
+                      </div>
                     </div>
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                      {segment.count} employees
-                    </span>
+                    {expandedIssue === issue.id ? (
+                      <span className="text-xl">▲</span>
+                    ) : (
+                      <span className="text-xl">▼</span>
+                    )}
                   </div>
+                  {expandedIssue === issue.id && (
+                    <div className="mt-4 pt-4 border-t">
+                      <p className="text-sm text-gray-600">
+                        Detailed analysis and action items would be displayed here.
+                      </p>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Satisfaction Insights */}
+        {/* Risk Segments */}
         <div className="bg-white rounded-lg shadow">
-          <div className="p-6">
-            <h2 className="text-lg font-medium text-gray-900">
-              Satisfaction Insights
-            </h2>
-            <div className="mt-4 space-y-4">
-              {satisfactionInsights.map((insight) => (
-                <div
-                  key={insight.category}
-                  className="border-b border-gray-200 pb-4"
-                >
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="text-sm font-medium text-gray-900">
-                        {insight.category}
-                      </h3>
-                      <p className="mt-1 text-sm text-gray-500">{insight.details}</p>
+          <div className="px-6 py-4 border-b border-gray-200">
+            <h3 className="text-lg font-medium text-gray-900">Employee Risk Segments</h3>
+          </div>
+          <div className="px-6 py-4">
+            <div className="space-y-4">
+              {riskSegments.map((segment) => (
+                <div key={segment.id} className="border rounded-lg p-4">
+                  <div
+                    className="flex items-center justify-between cursor-pointer"
+                    onClick={() => setExpandedSegment(expandedSegment === segment.id ? null : segment.id)}
+                  >
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <p className="text-sm font-medium text-gray-900">{segment.name}</p>
+                        <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs font-medium">
+                          {segment.count} employees
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex items-center">
-                      <span className="text-lg font-medium text-gray-900 mr-2">
-                        {insight.score}/5
-                      </span>
-                      <ChevronUpIcon
-                        className={`h-5 w-5 ${
-                          insight.trend === 'up'
-                            ? 'text-green-600'
-                            : 'text-red-600'
-                        }`}
-                      />
-                    </div>
+                    {expandedSegment === segment.id ? (
+                      <span className="text-xl">▲</span>
+                    ) : (
+                      <span className="text-xl">▼</span>
+                    )}
                   </div>
+                  {expandedSegment === segment.id && (
+                    <div className="mt-4 pt-4 border-t">
+                      <p className="text-sm text-gray-600">{segment.details}</p>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

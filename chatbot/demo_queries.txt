@@ -1,0 +1,37 @@
+# Demo Queries for HR Analytics Chatbot
+
+## Basic Employee Counts
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "How many employees do we have?"}'
+
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "How many employees are in OneMind value stream?"}'
+
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "How many active employees do we have?"}'
+
+## Demographics
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "What is the gender ratio?"}'
+
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "Show me employees by location"}'
+
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "What is the age distribution?"}'
+
+## Qualifications
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "How many PhDs do we have?"}'
+
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "How many PhDs work in OneMind?"}'
+
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "Show me employees with Masters degrees"}'
+
+## Team and Hierarchy
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "How many L5 employees do we have?"}'
+
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "Show me the breakdown by employee levels"}'
+
+## Performance
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "How many employees exceed expectations?"}'
+
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "What is the average engagement score?"}'
+
+## Complex Queries
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "How many male employees with PhD are in Gurgaon?"}'
+
+curl -X POST http://localhost:5001/api/chat -H "Content-Type: application/json" -d '{"message": "Show me the gender distribution in Commerce team"}' 

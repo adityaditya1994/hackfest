@@ -38,12 +38,12 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  // Using real senior employee from database - Ananya (L4 Principal Engineer)
+  // Using real senior employee from database - Sashi (L4 Principal Engineer)
   // In a real app, this would come from actual authentication
   const [user, setUser] = useState<User | null>({
     id: 'EMP0024',
-    name: 'Ananya',
-    email: 'ananya@deutschetelekom.com',
+    name: 'Sashi',
+    email: 'sashi@deutschetelekom.com',
     role: 'leader',
     department: 'OneAI', // Using actual team name from database
     empId: 'EMP0024', // Real employee ID from database

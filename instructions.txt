@@ -1,8 +1,8 @@
-People Analytics Local App - Technical Context
+Jarvis Analytics Local App - Technical Context
 
 Overview
 
-This is a local-first, AI-powered People Analytics dashboard designed for Deutsche Telekom Digital Labs. The tool provides HR leaders and managers with real-time insights and summaries about their teams using data unified from platforms like Darwinbox, TurboHire, Amber, GT Portal, and more.
+This is a local-first, AI-powered Jarvis Analytics dashboard designed for Deutsche Telekom Digital Labs. The tool provides HR leaders and managers with real-time insights and summaries about their teams using data unified from platforms like Darwinbox, TurboHire, Amber, GT Portal, and more.
 
 Tech Stack
 

@@ -7,48 +7,67 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Deutsche Telekom Magenta Color Palette
+        // Jarvis Analytics Color Palette - using E10075 as primary
         primary: {
-          50: '#fdf2f8',
-          100: '#fce7f3',
-          200: '#fbcfe8',
-          300: '#f9a8d4',
-          400: '#f472b6',
-          500: '#e91e63', // Deutsche Telekom Magenta
-          600: '#db2777',
-          700: '#be185d',
-          800: '#9d174d',
-          900: '#831843',
-          950: '#500724',
+          50: '#fef2f7',
+          100: '#fce7f0',
+          200: '#f9d0e1',
+          300: '#f5a8c8',
+          400: '#ee74aa',
+          500: '#E10075', // Main magenta color
+          600: '#c8006a',
+          700: '#a8005a',
+          800: '#8a004a',
+          900: '#72003e',
+          950: '#460022',
         },
-        // Secondary colors that complement magenta
-        secondary: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
+        // Clean grays for modern look
+        gray: {
+          50: '#f9fafb',
+          100: '#f3f4f6',
+          200: '#e5e7eb',
+          300: '#d1d5db',
+          400: '#9ca3af',
+          500: '#6b7280',
+          600: '#4b5563',
+          700: '#374151',
+          800: '#1f2937',
+          900: '#111827',
         },
-        // Deutsche Telekom accent colors
-        telekom: {
-          magenta: '#e91e63',
-          'magenta-dark': '#c2185b',
-          'magenta-light': '#f06292',
-          white: '#ffffff',
-          black: '#000000',
-          'dark-gray': '#333333',
-          'light-gray': '#f5f5f5',
-        }
+        // Chart colors matching screenshot
+        chart: {
+          blue: '#4f46e5',  // Indigo blue for charts
+          'blue-light': '#6366f1',
+          green: '#10b981', // Emerald green for charts  
+          'green-light': '#34d399',
+          orange: '#f59e0b', // Amber for accents
+          'orange-light': '#fbbf24',
+        },
+        // Status colors
+        success: '#059669',
+        warning: '#d97706',
+        danger: '#dc2626',
+        info: '#0284c7',
       },
       fontFamily: {
-        // Deutsche Telekom uses clean, modern fonts
+        // Clean, modern typography
         sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
       },
+      fontSize: {
+        '2xs': ['0.625rem', { lineHeight: '1rem' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+      },
+      borderRadius: {
+        'xl': '0.75rem',
+        '2xl': '1rem',
+      },
+      boxShadow: {
+        'soft': '0 2px 8px 0 rgba(0, 0, 0, 0.1)',
+        'card': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+      }
     },
   },
   plugins: [],
