@@ -38,16 +38,16 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  // Using real senior employee from database - Sashi (L4 Principal Engineer)
+  // Using real leader from database - Sashi (L5 Director) 
   // In a real app, this would come from actual authentication
   const [user, setUser] = useState<User | null>({
-    id: 'EMP0024',
+    id: 'EMP0023',
     name: 'Sashi',
     email: 'sashi@deutschetelekom.com',
     role: 'leader',
-    department: 'OneAI', // Using actual team name from database
-    empId: 'EMP0024', // Real employee ID from database
-    managerId: 'EMP0024', // Self-reference for hierarchy purposes
+    department: 'OneMind', // Using actual team name from database
+    empId: 'EMP0023', // Real employee ID from database
+    managerId: 'EMP0023', // Self-reference for hierarchy purposes
     designation: 'Principal Engineer',
     level: 'L4'
   });
@@ -64,7 +64,57 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const switchRole = (role: UserRole) => {
     if (user) {
-      setUser({ ...user, role });
+      // Switch to different personas based on role
+      let newUser: User;
+      
+      switch (role) {
+        case 'hr':
+          newUser = {
+            id: 'HR001',
+            name: 'HR Analytics',
+            email: 'hr.analytics@deutschetelekom.com',
+            role: 'hr',
+            department: 'Human Resources',
+            empId: 'HR001',
+            managerId: 'HR001',
+            designation: 'HR Analytics Manager',
+            level: 'L5'
+          };
+          break;
+          
+        case 'manager':
+          newUser = {
+            id: 'EMP0001',
+            name: 'Sunita Ghosh',
+            email: 'sunita.ghosh@deutschetelekom.com',
+            role: 'manager',
+            department: 'OneAI',
+            empId: 'EMP0001',
+            managerId: 'EMP0001',
+            designation: 'Senior Director',
+            level: 'L5'
+          };
+          break;
+          
+        case 'leader':
+          newUser = {
+            id: 'EMP0023',
+            name: 'Sashi',
+            email: 'sashi@deutschetelekom.com',
+            role: 'leader',
+            department: 'OneMind',
+            empId: 'EMP0023',
+            managerId: 'EMP0023',
+            designation: 'Director',
+            level: 'L5'
+          };
+          break;
+          
+        default:
+          newUser = { ...user, role };
+      }
+      
+      setUser(newUser);
     }
   };
 

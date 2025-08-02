@@ -34,9 +34,27 @@ export default function Layout() {
   ];
 
   const roles = [
-    { id: 'leader' as UserRole, name: 'Leader' },
-    { id: 'hr' as UserRole, name: 'HR' },
-    { id: 'manager' as UserRole, name: 'Manager' }
+    { 
+      id: 'hr' as UserRole, 
+      name: 'HR', 
+      description: 'Company-wide analytics',
+      icon: '👥',
+      color: 'bg-blue-50 text-blue-700 border-blue-200'
+    },
+    { 
+      id: 'leader' as UserRole, 
+      name: 'Leader', 
+      description: 'Team & department insights',
+      icon: '🎯',
+      color: 'bg-purple-50 text-purple-700 border-purple-200'
+    },
+    { 
+      id: 'manager' as UserRole, 
+      name: 'Manager', 
+      description: 'Direct reports view',
+      icon: '👨‍💼',
+      color: 'bg-green-50 text-green-700 border-green-200'
+    }
   ];
 
   const handleRoleChange = (role: UserRole) => {
@@ -249,7 +267,7 @@ export default function Layout() {
         sidebarCollapsed ? 'lg:pl-20' : 'lg:pl-72'
       }`}>
         {/* Top navigation */}
-        <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
+        <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-6 shadow-sm sm:gap-x-8 sm:px-8 lg:px-10">
           <button
             type="button"
             className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
@@ -264,43 +282,76 @@ export default function Layout() {
           {/* Separator */}
           <div className="h-6 w-px bg-gray-900/10 lg:hidden" aria-hidden="true" />
 
-          <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
+          <div className="flex flex-1 gap-x-6 self-stretch lg:gap-x-8">
             <div className="relative flex flex-1 items-center">
               <span className="text-gray-600 text-sm">
                 Welcome back, <span className="font-medium">{user?.name || 'User'}</span>
               </span>
             </div>
-            <div className="flex items-center gap-x-4 lg:gap-x-6">
-              {/* Role Switcher */}
+            <div className="flex items-center gap-x-6 lg:gap-x-8">
+              {/* Enhanced Role Switcher */}
               <Menu as="div" className="relative">
-                <Menu.Button className="flex items-center gap-x-2 px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
-                  {user?.role || 'Select Role'}
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                  </svg>
+                <Menu.Button className="flex items-center gap-x-3 px-4 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-xl shadow-sm hover:bg-gray-50 hover:border-primary-300 transition-all duration-200 hover:shadow-md">
+                  <div className="flex items-center gap-x-2">
+                    <span className="text-lg">
+                      {roles.find(role => role.id === user?.role)?.icon || '👤'}
+                    </span>
+                    <div className="text-left">
+                      <div className="font-semibold text-gray-900">
+                        {roles.find(role => role.id === user?.role)?.name || 'Select Role'}
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        {roles.find(role => role.id === user?.role)?.description || 'Choose your view'}
+                      </div>
+                    </div>
+                  </div>
+                  <span className="text-gray-400 text-sm">▼</span>
                 </Menu.Button>
                 <Transition
                   as={Fragment}
-                  enter="transition ease-out duration-100"
+                  enter="transition ease-out duration-200"
                   enterFrom="transform opacity-0 scale-95"
                   enterTo="transform opacity-100 scale-100"
-                  leave="transition ease-in duration-75"
+                  leave="transition ease-in duration-150"
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95"
                 >
-                  <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <Menu.Items className="absolute right-0 z-20 mt-2 w-72 origin-top-right rounded-2xl bg-white py-2 shadow-xl ring-1 ring-gray-900/10 border border-gray-100 focus:outline-none">
+                    <div className="px-4 py-2 border-b border-gray-100">
+                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                        Switch View
+                      </p>
+                    </div>
                     {roles.map((role) => (
                       <Menu.Item key={role.id}>
                         {({ active }) => (
-                                                     <button
-                             onClick={() => switchRole(role.id)}
-                             className={classNames(
-                               active ? 'bg-gray-100' : '',
-                               'block w-full text-left px-4 py-2 text-sm text-gray-700'
-                             )}
-                           >
-                             {role.name}
-                           </button>
+                          <button
+                            onClick={() => switchRole(role.id)}
+                            className={classNames(
+                              active ? 'bg-gray-50' : '',
+                              'group flex w-full items-center justify-between px-4 py-3 text-sm transition-colors duration-150'
+                            )}
+                          >
+                            <div className="flex items-center gap-x-3">
+                              <div className={classNames(
+                                'flex h-10 w-10 items-center justify-center rounded-xl border',
+                                role.color
+                              )}>
+                                <span className="text-lg">{role.icon}</span>
+                              </div>
+                              <div className="text-left">
+                                <div className="font-semibold text-gray-900">
+                                  {role.name}
+                                </div>
+                                <div className="text-xs text-gray-500">
+                                  {role.description}
+                                </div>
+                              </div>
+                            </div>
+                            {user?.role === role.id && (
+                              <span className="text-primary-600 font-bold">✓</span>
+                            )}
+                          </button>
                         )}
                       </Menu.Item>
                     ))}
